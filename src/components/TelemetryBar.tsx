@@ -36,7 +36,7 @@ export default function TelemetryBar({ isGenerating }: TelemetryBarProps) {
         <div className="w-px h-8 bg-divider" />
         <TelemetryItem label="Active Tasks" value={isGenerating ? "1" : "0"} />
         <div className="w-px h-8 bg-divider" />
-        <TelemetryItem label="Knowledge Sources" value="24" />
+        <TelemetryItem label="Knowledge Sources" value="100+" />
         <div className="w-px h-8 bg-divider" />
         <TelemetryItem label="System Health" value="NOMINAL" accent />
       </div>
