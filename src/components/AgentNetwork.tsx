@@ -26,7 +26,7 @@ const AgentNode = ({ name, description, isActive }: AgentNodeProps) => (
 
 const ConnectionLine = ({ active }: { active: boolean }) => (
   <motion.div
-    className="w-10 h-px"
+    className="h-6 w-px"
     animate={{ backgroundColor: active ? "hsl(47, 100%, 65%)" : "hsl(0, 0%, 100%, 0.1)" }}
     transition={{ duration: 0.3 }}
   />
