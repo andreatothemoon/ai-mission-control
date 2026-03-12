@@ -42,6 +42,11 @@ export default function AgentNetwork({ activeAgents }: AgentNetworkProps) {
     { id: "COMPLIANCE_AGENT", name: "COMPLIANCE AGENT", description: "Regulatory and Consumer Duty analysis" },
     { id: "PRODUCT_AGENT", name: "PRODUCT AGENT", description: "Product specifications and documentation" },
     { id: "INCIDENT_AGENT", name: "INCIDENT AGENT", description: "Operational incident intelligence" },
+    { id: "CASS_AGENT", name: "CASS AGENT", description: "Client assets and custody rules" },
+    { id: "INSIGHTS_AGENT", name: "INSIGHTS AGENT", description: "Data insights and reporting" },
+    { id: "FUND_AGENT", name: "FUND AGENT", description: "Investments and fund assets" },
+    { id: "COMPETITOR_ANALYSIS_AGENT", name: "COMPETITOR ANALYSIS AGENT", description: "Competitor research and benchmarking" },
+    { id: "CONTENT_WRITING_AGENT", name: "CONTENT WRITING AGENT", description: "Content creation and copywriting" },
   ];
 
   const masterActive = activeAgents.includes("MASTER_AGENT");
