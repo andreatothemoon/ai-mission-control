@@ -32,7 +32,7 @@ export default function TelemetryBar({ isGenerating }: TelemetryBarProps) {
       </div>
 
       <div className="flex items-center gap-6">
-        <TelemetryItem label="Agents Online" value="5" />
+        <TelemetryItem label="Agents Online" value="10" />
         <div className="w-px h-8 bg-divider" />
         <TelemetryItem label="Active Tasks" value={isGenerating ? "1" : "0"} />
         <div className="w-px h-8 bg-divider" />
