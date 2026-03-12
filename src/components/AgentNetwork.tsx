@@ -63,7 +63,7 @@ export default function AgentNetwork({ activeAgents }: AgentNetworkProps) {
           isActive={masterActive}
         />
         <ConnectionLine active={masterActive} />
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-3 gap-3">
           {agents.map((agent) => (
             <AgentNode
               key={agent.id}
