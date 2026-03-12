@@ -10,7 +10,7 @@ export default function MissionTimeline({ completedPhases, activePhase }: Missio
   const currentPhaseName = activePhase >= 0 ? timelinePhases[activePhase] : null;
 
   return (
-    <section className="col-start-2 row-start-3 bg-panel mx-3 mb-1 rounded-md border border-divider overflow-hidden">
+    <section className="col-start-2 row-start-2 bg-panel mx-3 mb-1 rounded-md border border-divider overflow-hidden">
       <div className="px-4 py-2.5 border-b border-divider flex items-center justify-between">
         <h2 className="text-xs font-semibold tracking-[0.08em] uppercase text-foreground-secondary">
           AI Mission Timeline
