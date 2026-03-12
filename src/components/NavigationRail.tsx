@@ -26,8 +26,8 @@ export default function NavigationRail() {
       <div className="mb-4 px-3">
         <h1 className="text-xs font-semibold tracking-[0.1em] uppercase text-foreground-secondary">AI Command Center</h1>
       </div>
-      <NavItem icon={<LayoutDashboard size={18} />} label="System Overview" active />
-      <NavItem icon={<Share2 size={18} />} label="Agent Network" />
+      <NavItem icon={<LayoutDashboard size={18} />} label="System Overview" />
+      <NavItem icon={<Share2 size={18} />} label="Agent Network" active />
       <NavItem icon={<FileText size={18} />} label="Operational Intel" />
       <NavItem icon={<ShieldCheck size={18} />} label="Compliance Analysis" />
       <NavItem icon={<Rocket size={18} />} label="Engineering Accel." />
