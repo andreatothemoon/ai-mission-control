@@ -1,7 +1,7 @@
 import { LayoutDashboard, Share2, ShieldCheck, FileText, Rocket, GitPullRequest } from "lucide-react";
 import React from "react";
 
-export type ActiveView = "overview" | "network";
+export type ActiveView = "overview" | "network" | "engineering" | "governance";
 
 interface NavItemProps {
   icon: React.ReactNode;
@@ -39,8 +39,8 @@ export default function NavigationRail({ activeView, onViewChange }: NavigationR
       <NavItem icon={<Share2 size={18} />} label="Agent Network" active={activeView === "network"} onClick={() => onViewChange("network")} />
       <NavItem icon={<FileText size={18} />} label="Operational Intel" />
       <NavItem icon={<ShieldCheck size={18} />} label="Compliance Analysis" />
-      <NavItem icon={<Rocket size={18} />} label="Engineering Accel." />
-      <NavItem icon={<GitPullRequest size={18} />} label="Governance" />
+      <NavItem icon={<Rocket size={18} />} label="Engineering Accel." active={activeView === "engineering"} onClick={() => onViewChange("engineering")} />
+      <NavItem icon={<GitPullRequest size={18} />} label="Governance" active={activeView === "governance"} onClick={() => onViewChange("governance")} />
     </nav>
   );
 }
