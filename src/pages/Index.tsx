@@ -90,9 +90,7 @@ const Index = () => {
       ) : activeView === "engineering" ? (
         <EngineeringAccel />
       ) : activeView === "governance" ? (
-        <div className="col-start-2 row-start-2 row-span-3 overflow-y-auto min-h-0">
-          <GovernanceView />
-        </div>
+        <GovernanceView />
       ) : (
         <SystemOverview />
       )}
