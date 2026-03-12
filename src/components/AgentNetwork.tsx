@@ -26,7 +26,7 @@ const AgentNode = ({ name, description, isActive }: AgentNodeProps) => (
 
 const ConnectionLine = ({ active }: { active: boolean }) => (
   <motion.div
-    className="w-10 h-px"
+    className="h-6 w-px"
     animate={{ backgroundColor: active ? "hsl(47, 100%, 65%)" : "hsl(0, 0%, 100%, 0.1)" }}
     transition={{ duration: 0.3 }}
   />
@@ -51,7 +51,7 @@ export default function AgentNetwork({ activeAgents }: AgentNetworkProps) {
       <div className="px-4 py-2.5 border-b border-divider">
         <h2 className="text-xs font-semibold tracking-[0.08em] uppercase text-foreground-secondary">Agent Network</h2>
       </div>
-      <div className="p-5 flex items-center justify-center gap-3">
+      <div className="p-5 flex flex-col items-center gap-4">
         <AgentNode
           name="MASTER AGENT"
           description="Routes and orchestrates all agent tasks"
