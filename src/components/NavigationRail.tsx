@@ -1,7 +1,7 @@
 import { LayoutDashboard, Share2, ShieldCheck, FileText, Rocket, GitPullRequest } from "lucide-react";
 import React from "react";
 
-export type ActiveView = "overview" | "network";
+export type ActiveView = "overview" | "network" | "engineering" | "governance";
 
 interface NavItemProps {
   icon: React.ReactNode;
