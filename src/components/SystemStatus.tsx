@@ -26,7 +26,7 @@ interface SystemStatusProps {
 
 export default function SystemStatus({ scenarios, onSelectScenario, isGenerating }: SystemStatusProps) {
   return (
-    <footer className="col-start-2 row-start-5 bg-panel mx-3 mb-3 mt-2 rounded-md border border-divider">
+    <footer className="col-start-2 row-start-4 bg-panel mx-3 mb-3 mt-2 rounded-md border border-divider">
       <div className="p-4 flex items-center justify-between">
         <div className="flex items-center gap-6">
           <StatusIndicator label="Governance Status" value="Active" />

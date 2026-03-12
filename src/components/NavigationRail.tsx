@@ -22,7 +22,7 @@ const NavItem = ({ icon, label, active = false }: NavItemProps) => (
 
 export default function NavigationRail() {
   return (
-    <nav className="col-start-1 row-start-2 row-span-4 border-r border-divider p-3 flex flex-col gap-1">
+    <nav className="col-start-1 row-start-2 row-span-3 border-r border-divider p-3 flex flex-col gap-1">
       <div className="mb-4 px-3">
         <h1 className="text-xs font-semibold tracking-[0.1em] uppercase text-foreground-secondary">AI Command Center</h1>
       </div>

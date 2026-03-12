@@ -10,7 +10,7 @@ interface CommandDisplayProps {
 
 export default function CommandDisplay({ prompt, response, isGenerating, activityStep }: CommandDisplayProps) {
   return (
-    <section className="col-start-2 row-start-2 bg-panel m-3 rounded-md border border-divider flex flex-col overflow-hidden">
+    <section className="bg-panel m-3 rounded-md border border-divider flex flex-col overflow-hidden">
       <div className="px-4 py-2.5 border-b border-divider flex items-center gap-2">
         <Terminal size={14} className="text-accent-cyan" />
         <h2 className="text-xs font-semibold tracking-[0.08em] uppercase text-foreground-secondary">

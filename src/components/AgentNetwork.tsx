@@ -47,7 +47,7 @@ export default function AgentNetwork({ activeAgents }: AgentNetworkProps) {
   const masterActive = activeAgents.includes("MASTER_AGENT");
 
   return (
-    <section className="col-start-2 row-start-3 bg-panel mx-3 rounded-md border border-divider overflow-hidden">
+    <section className="bg-panel m-3 rounded-md border border-divider overflow-hidden">
       <div className="px-4 py-2.5 border-b border-divider">
         <h2 className="text-xs font-semibold tracking-[0.08em] uppercase text-foreground-secondary">Agent Network</h2>
       </div>
