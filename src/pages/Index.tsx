@@ -87,6 +87,10 @@ const Index = () => {
             isGenerating={isGenerating}
           />
         </>
+      ) : activeView === "engineering" ? (
+        <EngineeringAccel />
+      ) : activeView === "governance" ? (
+        <GovernanceView />
       ) : (
         <SystemOverview />
       )}
