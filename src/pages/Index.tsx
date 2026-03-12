@@ -1,14 +1,16 @@
 import { useState, useCallback } from "react";
 import TelemetryBar from "@/components/TelemetryBar";
-import NavigationRail from "@/components/NavigationRail";
+import NavigationRail, { ActiveView } from "@/components/NavigationRail";
 import CommandDisplay from "@/components/CommandDisplay";
 import AgentNetwork from "@/components/AgentNetwork";
 import MissionTimeline from "@/components/MissionTimeline";
 import SystemStatus from "@/components/SystemStatus";
+import SystemOverview from "@/components/SystemOverview";
 import { demoScenarios, DemoScenario } from "@/data/demoResponses";
 import { scenarioRoutes } from "@/data/scenarioData";
 
 const Index = () => {
+  const [activeView, setActiveView] = useState<ActiveView>("network");
   const [currentScenario, setCurrentScenario] = useState<DemoScenario>(demoScenarios[0]);
   const [isGenerating, setIsGenerating] = useState(false);
   const [activeAgents, setActiveAgents] = useState<string[]>([]);
@@ -30,19 +32,16 @@ const Index = () => {
     setCompletedPhases([]);
     setActivePhase(-1);
 
-    // Step through activity phases
     scenario.activitySteps.forEach((step, i) => {
       if (i > 0) {
         setTimeout(() => setActivityStep(step), 600 * i);
       }
     });
 
-    // Activate specialist agents
     setTimeout(() => {
       setActiveAgents(scenario.involvedAgents);
     }, 600);
 
-    // Animate timeline phases
     route.timelinePhases.forEach((phaseIdx, i) => {
       setTimeout(() => {
         setCompletedPhases((prev) => [...prev, phaseIdx]);
@@ -50,7 +49,6 @@ const Index = () => {
       }, 400 + i * 400);
     });
 
-    // Show response
     setTimeout(() => {
       setDisplayedResponse(scenario.response);
       setIsGenerating(false);
@@ -60,31 +58,36 @@ const Index = () => {
   }, [isGenerating]);
 
   return (
-    <main className="h-screen w-screen overflow-hidden grid grid-cols-[12%_1fr] grid-rows-[10%_auto_1fr_auto] ">
+    <main className="h-screen w-screen overflow-hidden grid grid-cols-[12%_1fr] grid-rows-[10%_auto_1fr_auto]">
       <TelemetryBar isGenerating={isGenerating} />
-      <NavigationRail />
+      <NavigationRail activeView={activeView} onViewChange={setActiveView} />
 
-      <MissionTimeline
-        completedPhases={completedPhases}
-        activePhase={activePhase}
-      />
+      {activeView === "network" ? (
+        <>
+          <MissionTimeline
+            completedPhases={completedPhases}
+            activePhase={activePhase}
+          />
 
-      {/* Main content area: two columns */}
-      <div className="col-start-2 row-start-3 grid grid-cols-2 gap-0 min-h-0">
-        <CommandDisplay
-          prompt={currentScenario.prompt}
-          response={displayedResponse}
-          isGenerating={isGenerating}
-          activityStep={activityStep}
-        />
-        <AgentNetwork activeAgents={activeAgents} />
-      </div>
+          <div className="col-start-2 row-start-3 grid grid-cols-2 gap-0 min-h-0">
+            <CommandDisplay
+              prompt={currentScenario.prompt}
+              response={displayedResponse}
+              isGenerating={isGenerating}
+              activityStep={activityStep}
+            />
+            <AgentNetwork activeAgents={activeAgents} />
+          </div>
 
-      <SystemStatus
-        scenarios={demoScenarios}
-        onSelectScenario={handleScenarioSelect}
-        isGenerating={isGenerating}
-      />
+          <SystemStatus
+            scenarios={demoScenarios}
+            onSelectScenario={handleScenarioSelect}
+            isGenerating={isGenerating}
+          />
+        </>
+      ) : (
+        <SystemOverview />
+      )}
     </main>
   );
 };
