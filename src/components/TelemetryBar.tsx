@@ -23,7 +23,7 @@ export default function TelemetryBar({ isGenerating }: TelemetryBarProps) {
       <div className="flex items-center gap-6">
         <TelemetryItem label="System Phase" value="DEMONSTRATION" />
         <div className="w-px h-8 bg-divider" />
-        <TelemetryItem label="AI Operations Mode" value="AUTONOMOUS" />
+        <TelemetryItem label="AI Operations Mode" value="ASSISTIVE" />
       </div>
 
       <div className="flex flex-col items-center">
