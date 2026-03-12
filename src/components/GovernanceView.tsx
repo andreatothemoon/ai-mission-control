@@ -93,7 +93,7 @@ export default function GovernanceView() {
   const reviewCount = useCases.filter((u) => u.approval === "Under Review").length;
 
   return (
-    <div className="col-start-2 row-start-2 row-span-2 overflow-y-auto flex flex-col gap-4 p-4">
+    <div className="col-start-2 row-start-2 row-span-2 overflow-y-auto min-h-0 flex flex-col gap-4 p-4">
       {/* ── Governance Telemetry Strip ── */}
       <div className="flex items-center justify-between bg-panel border border-divider rounded-md px-5 py-3">
         <span className="text-[11px] font-semibold tracking-[0.1em] uppercase text-accent-cyan">
