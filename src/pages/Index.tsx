@@ -12,10 +12,8 @@ const Index = () => {
   const [currentScenario, setCurrentScenario] = useState<DemoScenario>(demoScenarios[0]);
   const [isGenerating, setIsGenerating] = useState(false);
   const [activeAgents, setActiveAgents] = useState<string[]>([]);
-  const [activeKnowledge, setActiveKnowledge] = useState<string[]>([]);
   const [displayedResponse, setDisplayedResponse] = useState(demoScenarios[0].response);
   const [activityStep, setActivityStep] = useState("");
-  const [routeLabel, setRouteLabel] = useState("");
   const [completedPhases, setCompletedPhases] = useState<number[]>([]);
   const [activePhase, setActivePhase] = useState(-1);
 
@@ -28,19 +26,9 @@ const Index = () => {
     setCurrentScenario(scenario);
     setIsGenerating(true);
     setActiveAgents(["MASTER_AGENT"]);
-    setActiveKnowledge([]);
     setActivityStep(scenario.activitySteps[0]);
     setCompletedPhases([]);
     setActivePhase(-1);
-
-    // Build route label
-    const agentNames = route.agentPath.map((id) =>
-      id.replace(/_AGENT$/, "").replace(/_/g, " ")
-    );
-    if (route.knowledgePath.length > 0) {
-      agentNames.push(route.knowledgePath[0].replace(/_/g, " "));
-    }
-    setRouteLabel(agentNames.join(" → "));
 
     // Step through activity phases
     scenario.activitySteps.forEach((step, i) => {
@@ -49,15 +37,10 @@ const Index = () => {
       }
     });
 
-    // Activate specialist agents after master
+    // Activate specialist agents
     setTimeout(() => {
-      setActiveAgents(route.agentPath);
-    }, 500);
-
-    // Activate knowledge nodes
-    setTimeout(() => {
-      setActiveKnowledge(route.knowledgePath);
-    }, 900);
+      setActiveAgents(scenario.involvedAgents);
+    }, 600);
 
     // Animate timeline phases
     route.timelinePhases.forEach((phaseIdx, i) => {
@@ -67,16 +50,13 @@ const Index = () => {
       }, 400 + i * 400);
     });
 
-    // Show response and reset active states
-    const totalDuration = 600 * scenario.activitySteps.length + 400;
+    // Show response
     setTimeout(() => {
       setDisplayedResponse(scenario.response);
       setIsGenerating(false);
       setActiveAgents([]);
-      setActiveKnowledge([]);
       setActivityStep("");
-      // Keep timeline and route label visible after completion
-    }, totalDuration);
+    }, 600 * scenario.activitySteps.length + 400);
   }, [isGenerating]);
 
   return (
@@ -90,11 +70,7 @@ const Index = () => {
           isGenerating={isGenerating}
           activityStep={activityStep}
         />
-        <AgentNetwork
-          activeAgents={activeAgents}
-          activeKnowledge={activeKnowledge}
-          routeLabel={routeLabel}
-        />
+        <AgentNetwork activeAgents={activeAgents} />
         <MissionTimeline
           completedPhases={completedPhases}
           activePhase={activePhase}
