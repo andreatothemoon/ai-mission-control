@@ -37,7 +37,7 @@ export default function NavigationRail({ activeView, onViewChange }: NavigationR
       </div>
       <NavItem icon={<LayoutDashboard size={18} />} label="System Overview" active={activeView === "overview"} onClick={() => onViewChange("overview")} />
       <NavItem icon={<Share2 size={18} />} label="Agent Network" active={activeView === "network"} onClick={() => onViewChange("network")} />
-      <NavItem icon={<Rocket size={18} />} label="Engineering Accel." active={activeView === "engineering"} onClick={() => onViewChange("engineering")} />
+      <NavItem icon={<Rocket size={18} />} label="Engineering" active={activeView === "engineering"} onClick={() => onViewChange("engineering")} />
       <NavItem icon={<GitPullRequest size={18} />} label="Governance" active={activeView === "governance"} onClick={() => onViewChange("governance")} />
     </nav>
   );
