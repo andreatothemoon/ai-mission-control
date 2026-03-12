@@ -60,10 +60,12 @@ const Index = () => {
   }, [isGenerating]);
 
   return (
-    <main className="h-screen w-screen overflow-hidden">
-      <div className="grid grid-cols-[12%_1fr] grid-rows-[10%_1fr_auto_auto_auto] h-full">
-        <TelemetryBar isGenerating={isGenerating} />
-        <NavigationRail />
+    <main className="h-screen w-screen overflow-hidden grid grid-cols-[12%_1fr] grid-rows-[10%_1fr_auto_auto] ">
+      <TelemetryBar isGenerating={isGenerating} />
+      <NavigationRail />
+
+      {/* Main content area: two columns */}
+      <div className="col-start-2 row-start-2 grid grid-cols-2 gap-0 min-h-0">
         <CommandDisplay
           prompt={currentScenario.prompt}
           response={displayedResponse}
@@ -71,16 +73,17 @@ const Index = () => {
           activityStep={activityStep}
         />
         <AgentNetwork activeAgents={activeAgents} />
-        <MissionTimeline
-          completedPhases={completedPhases}
-          activePhase={activePhase}
-        />
-        <SystemStatus
-          scenarios={demoScenarios}
-          onSelectScenario={handleScenarioSelect}
-          isGenerating={isGenerating}
-        />
       </div>
+
+      <MissionTimeline
+        completedPhases={completedPhases}
+        activePhase={activePhase}
+      />
+      <SystemStatus
+        scenarios={demoScenarios}
+        onSelectScenario={handleScenarioSelect}
+        isGenerating={isGenerating}
+      />
     </main>
   );
 };
