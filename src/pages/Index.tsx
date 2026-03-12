@@ -6,6 +6,8 @@ import AgentNetwork from "@/components/AgentNetwork";
 import MissionTimeline from "@/components/MissionTimeline";
 import SystemStatus from "@/components/SystemStatus";
 import SystemOverview from "@/components/SystemOverview";
+import EngineeringAccel from "@/components/EngineeringAccel";
+import GovernanceView from "@/components/GovernanceView";
 import { demoScenarios, DemoScenario } from "@/data/demoResponses";
 import { scenarioRoutes } from "@/data/scenarioData";
 
