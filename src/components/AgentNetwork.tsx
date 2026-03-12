@@ -52,18 +52,18 @@ export default function AgentNetwork({ activeAgents }: AgentNetworkProps) {
   const masterActive = activeAgents.includes("MASTER_AGENT");
 
   return (
-    <section className="bg-panel m-3 rounded-md border border-divider overflow-hidden">
-      <div className="px-4 py-2.5 border-b border-divider">
+    <section className="bg-panel m-3 rounded-md border border-divider overflow-hidden flex flex-col min-h-0">
+      <div className="px-4 py-2.5 border-b border-divider shrink-0">
         <h2 className="text-xs font-semibold tracking-[0.08em] uppercase text-foreground-secondary">Agent Network</h2>
       </div>
-      <div className="p-5 flex flex-col items-center gap-4">
+      <div className="p-4 flex flex-col items-center gap-3 overflow-y-auto min-h-0">
         <AgentNode
           name="MASTER AGENT"
           description="Routes and orchestrates all agent tasks"
           isActive={masterActive}
         />
         <ConnectionLine active={masterActive} />
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-2">
           {agents.map((agent) => (
             <AgentNode
               key={agent.id}
