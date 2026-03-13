@@ -83,7 +83,7 @@ const Index = () => {
             <AgentNetwork activeAgents={activeAgents} />
           </div>
 
-          <SystemStatus isGenerating={isGenerating} />
+          
         </>
       ) : activeView === "engineering" ? (
         <EngineeringAccel />
