@@ -134,9 +134,6 @@ export default function GovernanceView() {
                   Operating Model
                 </h2>
               </div>
-              <p className="text-[10px] text-foreground-secondary/60 mt-1 tracking-wide">
-                AI-first product development in a regulated environment
-              </p>
             </div>
             <div className="flex flex-col items-end gap-0.5">
               <span className="text-[9px] font-semibold tracking-[0.1em] uppercase text-foreground-secondary/50">
