@@ -299,11 +299,10 @@ export default function GovernanceView() {
             </table>
           </div>
         </motion.div>
-      </div>
 
-      {/* ── AI Operating Model ── */}
-      <motion.div
-        className="bg-panel border border-divider rounded-md flex flex-col overflow-hidden"
+        {/* ── AI Operating Model ── */}
+        <motion.div
+          className="bg-panel border border-divider rounded-md flex flex-col overflow-hidden col-span-2"
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.2 }}
