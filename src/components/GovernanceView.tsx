@@ -341,6 +341,7 @@ export default function GovernanceView() {
           </div>
         </div>
       </motion.div>
+      </div>
     </div>
   );
 }
