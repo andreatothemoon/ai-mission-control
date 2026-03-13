@@ -106,7 +106,7 @@ export default function GovernanceView() {
           <div className="px-5 py-3 border-b border-divider flex items-center gap-2 shrink-0">
             <Shield size={14} className="text-accent-cyan" />
             <h2 className="text-xs font-semibold tracking-[0.08em] uppercase text-foreground-secondary">
-              AI Operating Model
+              Operating Model
             </h2>
           </div>
           <div className="flex-1 flex items-center justify-center py-6 px-6">
