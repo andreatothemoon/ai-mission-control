@@ -315,11 +315,11 @@ export default function GovernanceView() {
           </h2>
         </div>
         <div className="flex items-center justify-center py-8 px-6">
-          <div className="flex flex-col items-center gap-0 w-full max-w-md">
+          <div className="flex items-center gap-0 w-full">
             {operatingModelNodes.map((node, i) => (
-              <div key={node.title} className="flex flex-col items-center w-full">
+              <div key={node.title} className="flex items-center flex-1 min-w-0">
                 <motion.div
-                  className="w-full bg-background/40 border border-divider rounded-md px-6 py-4 text-center"
+                  className="w-full bg-background/40 border border-divider rounded-md px-4 py-4 text-center"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0.08 * i }}
@@ -332,9 +332,9 @@ export default function GovernanceView() {
                   </p>
                 </motion.div>
                 {i < operatingModelNodes.length - 1 && (
-                  <div className="flex flex-col items-center py-1">
-                    <div className="w-px h-4 bg-accent-cyan/40" />
-                    <ArrowDown size={12} className="text-accent-cyan/60" />
+                  <div className="flex items-center px-1 shrink-0">
+                    <div className="w-4 h-px bg-accent-cyan/40" />
+                    <ChevronDown size={12} className="text-accent-cyan/60 -rotate-90" />
                   </div>
                 )}
               </div>
