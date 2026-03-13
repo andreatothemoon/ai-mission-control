@@ -192,12 +192,6 @@ export default function GovernanceView() {
                   <span className="text-[10px] text-foreground-secondary">
                     {agent.owner}
                   </span>
-                  <span className="text-[10px] text-foreground-secondary">•</span>
-                  <span
-                    className={`text-[10px] font-semibold uppercase tracking-wider ${riskColor[agent.risk]}`}
-                  >
-                    {agent.risk} Risk
-                  </span>
                 </div>
               </motion.div>
             ))}
