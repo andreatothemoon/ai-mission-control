@@ -51,13 +51,13 @@ const operatingModelNodes = [
 
 const statusColor: Record<string, string> = {
   Active: "bg-accent-green",
-  "Review Required": "bg-accent-yellow",
+  "In Development": "bg-accent-yellow",
   Inactive: "bg-muted",
 };
 
 const statusTextColor: Record<string, string> = {
   Active: "text-accent-green",
-  "Review Required": "text-accent-yellow",
+  "In Development": "text-accent-yellow",
   Inactive: "text-foreground-secondary",
 };
 
