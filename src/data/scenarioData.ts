@@ -8,8 +8,8 @@ export interface ScenarioRoute {
 export const timelinePhases = [
   "IDEA",
   "COMPLIANCE REVIEW",
-  "OPS DESIGN",
-  "ENGINEERING BUILD",
+  "DESIGN",
+  "ENGINEERING",
   "RELEASE",
 ] as const;
 
