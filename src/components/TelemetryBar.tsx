@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 interface TelemetryItemProps {
   label: string;
   value: string;
@@ -18,6 +20,15 @@ interface TelemetryBarProps {
 }
 
 export default function TelemetryBar({ isGenerating }: TelemetryBarProps) {
+  const [activeTasks, setActiveTasks] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveTasks(Math.floor(Math.random() * 7)); // 0–6
+    }, 3000 + Math.random() * 2000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <header className="col-span-2 flex items-center justify-between px-6 border-b border-divider bg-panel/50">
       <div className="flex items-center gap-6">
@@ -34,7 +45,7 @@ export default function TelemetryBar({ isGenerating }: TelemetryBarProps) {
       <div className="flex items-center gap-6">
         <TelemetryItem label="Agents Online" value="10" />
         <div className="w-px h-8 bg-divider" />
-        <TelemetryItem label="Active Tasks" value={isGenerating ? "1" : "0"} />
+        <TelemetryItem label="Active Tasks" value={String(activeTasks)} />
         <div className="w-px h-8 bg-divider" />
         <TelemetryItem label="Knowledge Sources" value="100+" />
       </div>
