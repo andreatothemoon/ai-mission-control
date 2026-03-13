@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { motion } from "framer-motion";
 
 interface AgentNodeProps {
@@ -32,6 +33,18 @@ const ConnectionLine = ({ active }: { active: boolean }) => (
   />
 );
 
+const agentKnowledgeMap: Record<string, string[]> = {
+  OPS_AGENT: ["SOPs"],
+  COMPLIANCE_AGENT: ["Regulations"],
+  PRODUCT_AGENT: ["Product Specs"],
+  CASS_AGENT: ["Regulations"],
+  INCIDENT_AGENT: ["Guidelines", "Platforms"],
+  INSIGHTS_AGENT: ["Data Feeds", "Databases"],
+  FUND_AGENT: ["Factsheets", "Databases"],
+  COMPETITOR_ANALYSIS_AGENT: ["Data Feeds"],
+  CONTENT_WRITING_AGENT: ["Guidelines"],
+};
+
 interface AgentNetworkProps {
   activeAgents: string[];
 }
@@ -50,6 +63,16 @@ export default function AgentNetwork({ activeAgents }: AgentNetworkProps) {
   ];
 
   const masterActive = activeAgents.includes("MASTER_AGENT");
+
+  const activeKnowledgeSources = useMemo(() => {
+    const sources = new Set<string>();
+    activeAgents.forEach((agentId) => {
+      agentKnowledgeMap[agentId]?.forEach((s) => sources.add(s));
+    });
+    return sources;
+  }, [activeAgents]);
+
+  const allSources = ["SOPs", "Product Specs", "Regulations", "Data Feeds", "Platforms", "Guidelines", "Factsheets", "Databases"];
 
   return (
     <section className="bg-panel m-3 rounded-md border border-divider overflow-hidden flex flex-col min-h-0">
@@ -78,14 +101,23 @@ export default function AgentNetwork({ activeAgents }: AgentNetworkProps) {
         <div className="w-full mt-3 pt-3 border-t border-dashed border-divider">
           <span className="text-[11px] font-semibold tracking-[0.08em] uppercase text-foreground-secondary mb-2 block">Knowledge Sources</span>
           <div className="flex flex-wrap gap-2">
-            {["SOPs", "Product Specs", "Regulations", "Data Feeds", "Platforms", "Guidelines", "Factsheets", "Databases"].map((source) => (
-              <div
-                key={source}
-                className="text-[11px] font-medium tracking-wider uppercase text-foreground-secondary bg-foreground/5 border border-divider rounded-sm px-3 py-1.5"
-              >
-                {source}
-              </div>
-            ))}
+            {allSources.map((source) => {
+              const isActive = activeKnowledgeSources.has(source);
+              return (
+                <motion.div
+                  key={source}
+                  className="text-[11px] font-medium tracking-wider uppercase rounded-sm px-3 py-1.5 border"
+                  animate={{
+                    color: isActive ? "hsl(47, 100%, 65%)" : "hsl(0, 0%, 100%, 0.5)",
+                    backgroundColor: isActive ? "hsla(47, 100%, 65%, 0.1)" : "hsla(0, 0%, 100%, 0.03)",
+                    borderColor: isActive ? "hsl(47, 100%, 65%)" : "hsl(0, 0%, 100%, 0.1)",
+                  }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                >
+                  {source}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </div>
