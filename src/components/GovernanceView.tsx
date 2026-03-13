@@ -122,8 +122,8 @@ export default function GovernanceView() {
         </div>
       </div>
 
-      {/* ── Top Row: Catalogue + Use Case Register ── */}
-      <div className="grid grid-cols-2 gap-4 min-h-0 max-h-[50vh]">
+      {/* ── Main Grid: Catalogue + Use Case Register + Operating Model ── */}
+      <div className="grid grid-cols-2 gap-4 min-h-0 flex-1">
         {/* AI Agent Catalogue */}
         <motion.div
           className="bg-panel border border-divider rounded-md flex flex-col overflow-hidden"
