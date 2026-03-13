@@ -19,12 +19,31 @@ interface TelemetryBarProps {
   isGenerating: boolean;
 }
 
+function useSessionTimer() {
+  const getElapsed = () => {
+    const now = new Date();
+    return now.getMinutes() * 60 + now.getSeconds();
+  };
+
+  const [elapsed, setElapsed] = useState(getElapsed);
+
+  useEffect(() => {
+    const interval = setInterval(() => setElapsed(getElapsed()), 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const mm = String(Math.floor(elapsed / 60)).padStart(2, "0");
+  const ss = String(elapsed % 60).padStart(2, "0");
+  return `00:${mm}:${ss}`;
+}
+
 export default function TelemetryBar({ isGenerating }: TelemetryBarProps) {
   const [activeTasks, setActiveTasks] = useState(0);
+  const sessionTime = useSessionTimer();
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveTasks(Math.floor(Math.random() * 7)); // 0–6
+      setActiveTasks(Math.floor(Math.random() * 7));
     }, 3000 + Math.random() * 2000);
     return () => clearInterval(interval);
   }, []);
@@ -39,7 +58,7 @@ export default function TelemetryBar({ isGenerating }: TelemetryBarProps) {
 
       <div className="flex flex-col items-center">
         <div className="text-[11px] font-medium tracking-[0.08em] uppercase text-foreground-secondary">Session Timer</div>
-        <span className="text-2xl font-mono tabular-nums font-semibold text-foreground">00:12:45</span>
+        <span className="text-2xl font-mono tabular-nums font-semibold text-foreground">{sessionTime}</span>
       </div>
 
       <div className="flex items-center gap-6">
