@@ -11,13 +11,10 @@ export default function MissionTimeline({ completedPhases, activePhase }: Missio
 
   return (
     <section className="col-start-2 row-start-2 bg-panel mx-3 mb-1 rounded-md border border-divider overflow-hidden">
-      <div className="px-4 py-2.5 border-b border-divider flex items-center justify-between">
+      <div className="px-4 py-2.5 border-b border-divider">
         <h2 className="text-xs font-semibold tracking-[0.08em] uppercase text-foreground-secondary">
           AI Mission Timeline
         </h2>
-        <span className="text-[10px] font-mono tracking-wider uppercase text-foreground-secondary">
-          AI-assisted product delivery lifecycle
-        </span>
       </div>
 
       <div className="px-8 py-5">
