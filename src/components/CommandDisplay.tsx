@@ -1,14 +1,17 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Terminal } from "lucide-react";
+import { DemoScenario } from "@/data/demoResponses";
 
 interface CommandDisplayProps {
   prompt: string;
   response: string;
   isGenerating: boolean;
   activityStep: string;
+  scenarios: DemoScenario[];
+  onSelectScenario: (scenario: DemoScenario) => void;
 }
 
-export default function CommandDisplay({ prompt, response, isGenerating, activityStep }: CommandDisplayProps) {
+export default function CommandDisplay({ prompt, response, isGenerating, activityStep, scenarios, onSelectScenario }: CommandDisplayProps) {
   return (
     <section className="bg-panel m-3 rounded-md border border-divider flex flex-col overflow-hidden">
       <div className="px-4 py-2.5 border-b border-divider flex items-center gap-2">
@@ -16,6 +19,21 @@ export default function CommandDisplay({ prompt, response, isGenerating, activit
         <h2 className="text-xs font-semibold tracking-[0.08em] uppercase text-foreground-secondary">
           Live AI Command Interface
         </h2>
+      </div>
+
+      {/* Demo scenario buttons */}
+      <div className="px-4 py-3 border-b border-divider flex items-center gap-2 flex-wrap">
+        <span className="text-[11px] font-medium tracking-[0.06em] uppercase text-foreground-secondary mr-1">Demo Scenarios:</span>
+        {scenarios.map((sc) => (
+          <button
+            key={sc.id}
+            onClick={() => onSelectScenario(sc)}
+            disabled={isGenerating}
+            className="text-[11px] uppercase font-semibold tracking-wider bg-foreground/5 hover:bg-foreground/10 text-foreground-secondary hover:text-foreground px-3 py-1.5 rounded-sm transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed border border-divider"
+          >
+            Scenario {sc.id}
+          </button>
+        ))}
       </div>
 
       <div className="flex-1 p-5 overflow-y-auto font-mono text-sm space-y-4">
@@ -27,9 +45,9 @@ export default function CommandDisplay({ prompt, response, isGenerating, activit
 
         <div className="border-t border-dashed border-divider" />
 
-        {/* System response */}
+        {/* Agent response */}
         <div>
-          <span className="text-[11px] tracking-[0.08em] uppercase text-foreground-secondary">System:</span>
+          <span className="text-[11px] tracking-[0.08em] uppercase text-foreground-secondary">Agent:</span>
 
           {isGenerating && !response && (
             <div className="mt-3 flex items-center gap-3">
@@ -71,12 +89,6 @@ export default function CommandDisplay({ prompt, response, isGenerating, activit
               </motion.pre>
             )}
           </AnimatePresence>
-        </div>
-      </div>
-
-      <div className="p-3 border-t border-divider">
-        <div className="bg-background border border-divider rounded-md px-4 py-2.5 text-foreground-secondary text-sm font-mono">
-          Ask the system...
         </div>
       </div>
     </section>

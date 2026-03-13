@@ -77,15 +77,13 @@ const Index = () => {
               response={displayedResponse}
               isGenerating={isGenerating}
               activityStep={activityStep}
+              scenarios={demoScenarios}
+              onSelectScenario={handleScenarioSelect}
             />
             <AgentNetwork activeAgents={activeAgents} />
           </div>
 
-          <SystemStatus
-            scenarios={demoScenarios}
-            onSelectScenario={handleScenarioSelect}
-            isGenerating={isGenerating}
-          />
+          <SystemStatus isGenerating={isGenerating} />
         </>
       ) : activeView === "engineering" ? (
         <EngineeringAccel />
