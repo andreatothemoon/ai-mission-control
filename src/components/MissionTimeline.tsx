@@ -114,22 +114,6 @@ export default function MissionTimeline({ completedPhases, activePhase }: Missio
           })}
         </div>
 
-        {/* Current phase label */}
-        {currentPhaseName && (
-          <motion.div
-            className="mt-4 text-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            key={currentPhaseName}
-          >
-            <span className="text-[10px] font-mono tracking-wider uppercase text-foreground-secondary">
-              Current Phase:{" "}
-            </span>
-            <span className="text-[10px] font-mono tracking-wider uppercase text-accent-yellow">
-              {currentPhaseName}
-            </span>
-          </motion.div>
-        )}
       </div>
     </section>
   );
