@@ -95,51 +95,9 @@ export default function GovernanceView() {
   return (
     <div className="col-start-2 row-start-2 row-span-2 overflow-y-auto flex flex-col gap-4 p-4">
 
-      {/* ── AI Operating Model ── */}
-      <motion.div
-        className="bg-panel border border-divider rounded-md flex flex-col overflow-hidden"
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, delay: 0.2 }}
-      >
-        <div className="px-5 py-3 border-b border-divider flex items-center gap-2 shrink-0">
-          <Shield size={14} className="text-accent-cyan" />
-          <h2 className="text-xs font-semibold tracking-[0.08em] uppercase text-foreground-secondary">
-            AI Operating Model
-          </h2>
-        </div>
-        <div className="flex items-center justify-center py-6 px-6">
-          <div className="flex items-center gap-0 w-full">
-            {operatingModelNodes.map((node, i) => (
-              <div key={node.title} className="flex items-center flex-1 min-w-0">
-                <motion.div
-                  className="w-full bg-background/40 border border-divider rounded-md px-4 py-4 text-center"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: 0.08 * i }}
-                >
-                  <div className="text-sm font-semibold text-accent-cyan uppercase tracking-[0.06em]">
-                    {node.title}
-                  </div>
-                  <p className="text-[11px] text-foreground-secondary mt-1 leading-relaxed">
-                    {node.desc}
-                  </p>
-                </motion.div>
-                {i < operatingModelNodes.length - 1 && (
-                  <div className="flex items-center px-1 shrink-0">
-                    <div className="w-4 h-px bg-accent-cyan/40" />
-                    <ChevronDown size={12} className="text-accent-cyan/60 -rotate-90" />
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </motion.div>
-
-      {/* ── Catalogue + Use Case Register ── */}
+      {/* ── Operating Model + Use Case Register ── */}
       <div className="grid grid-cols-2 gap-4 min-h-0 flex-1">
-        {/* AI Agent Catalogue */}
+        {/* AI Operating Model */}
         <motion.div
           className="bg-panel border border-divider rounded-md flex flex-col overflow-hidden"
           initial={{ opacity: 0, y: 12 }}
@@ -147,54 +105,37 @@ export default function GovernanceView() {
           transition={{ duration: 0.4 }}
         >
           <div className="px-5 py-3 border-b border-divider flex items-center gap-2 shrink-0">
-            <Bot size={14} className="text-accent-cyan" />
+            <Shield size={14} className="text-accent-cyan" />
             <h2 className="text-xs font-semibold tracking-[0.08em] uppercase text-foreground-secondary">
-              AI Agent Catalogue
+              AI Operating Model
             </h2>
-            <span className="ml-auto text-[10px] font-mono text-foreground-secondary">
-              {activeCount} active
-            </span>
           </div>
-          <div className="flex-1 overflow-y-auto p-4 grid grid-cols-2 gap-3 auto-rows-min">
-            {agents.map((agent, i) => (
-              <motion.div
-                key={agent.name}
-                className="bg-background/40 border border-divider rounded-md p-4 flex flex-col gap-2"
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: 0.03 * i }}
-              >
-                <div className="flex items-center justify-between">
-                  <span className="text-sm font-semibold text-foreground leading-tight">
-                    {agent.name}
-                  </span>
-                  <div className="flex items-center gap-1.5">
-                    <div
-                      className={`w-2 h-2 rounded-full ${statusColor[agent.status]}`}
-                      style={{
-                        boxShadow:
-                          agent.status === "Active"
-                            ? "0 0 6px hsl(var(--accent-green))"
-                            : undefined,
-                      }}
-                    />
-                    <span
-                      className={`text-[10px] font-semibold uppercase tracking-wider ${statusTextColor[agent.status]}`}
-                    >
-                      {agent.status}
-                    </span>
-                  </div>
+          <div className="flex-1 flex items-center justify-center py-6 px-6">
+            <div className="flex flex-col items-center gap-0 w-full">
+              {operatingModelNodes.map((node, i) => (
+                <div key={node.title} className="flex flex-col items-center w-full">
+                  <motion.div
+                    className="w-full bg-background/40 border border-divider rounded-md px-4 py-4 text-center"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.08 * i }}
+                  >
+                    <div className="text-sm font-semibold text-accent-cyan uppercase tracking-[0.06em]">
+                      {node.title}
+                    </div>
+                    <p className="text-[11px] text-foreground-secondary mt-1 leading-relaxed">
+                      {node.desc}
+                    </p>
+                  </motion.div>
+                  {i < operatingModelNodes.length - 1 && (
+                    <div className="flex flex-col items-center py-1 shrink-0">
+                      <div className="h-4 w-px bg-accent-cyan/40" />
+                      <ChevronDown size={12} className="text-accent-cyan/60" />
+                    </div>
+                  )}
                 </div>
-                <p className="text-[11px] text-foreground-secondary leading-relaxed">
-                  {agent.purpose}
-                </p>
-                <div className="flex items-center gap-3 mt-auto pt-1">
-                  <span className="text-[10px] text-foreground-secondary">
-                    {agent.owner}
-                  </span>
-                </div>
-              </motion.div>
-            ))}
+              ))}
+            </div>
           </div>
         </motion.div>
 
