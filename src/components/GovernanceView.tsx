@@ -122,7 +122,49 @@ export default function GovernanceView() {
         </div>
       </div>
 
-      {/* ── Main Grid: Catalogue + Use Case Register + Operating Model ── */}
+      {/* ── AI Operating Model ── */}
+      <motion.div
+        className="bg-panel border border-divider rounded-md flex flex-col overflow-hidden"
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, delay: 0.2 }}
+      >
+        <div className="px-5 py-3 border-b border-divider flex items-center gap-2 shrink-0">
+          <Shield size={14} className="text-accent-cyan" />
+          <h2 className="text-xs font-semibold tracking-[0.08em] uppercase text-foreground-secondary">
+            AI Operating Model
+          </h2>
+        </div>
+        <div className="flex items-center justify-center py-6 px-6">
+          <div className="flex items-center gap-0 w-full">
+            {operatingModelNodes.map((node, i) => (
+              <div key={node.title} className="flex items-center flex-1 min-w-0">
+                <motion.div
+                  className="w-full bg-background/40 border border-divider rounded-md px-4 py-4 text-center"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.08 * i }}
+                >
+                  <div className="text-sm font-semibold text-accent-cyan uppercase tracking-[0.06em]">
+                    {node.title}
+                  </div>
+                  <p className="text-[11px] text-foreground-secondary mt-1 leading-relaxed">
+                    {node.desc}
+                  </p>
+                </motion.div>
+                {i < operatingModelNodes.length - 1 && (
+                  <div className="flex items-center px-1 shrink-0">
+                    <div className="w-4 h-px bg-accent-cyan/40" />
+                    <ChevronDown size={12} className="text-accent-cyan/60 -rotate-90" />
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </motion.div>
+
+      {/* ── Catalogue + Use Case Register ── */}
       <div className="grid grid-cols-2 gap-4 min-h-0 flex-1">
         {/* AI Agent Catalogue */}
         <motion.div
@@ -299,48 +341,6 @@ export default function GovernanceView() {
             </table>
           </div>
         </motion.div>
-
-        {/* ── AI Operating Model ── */}
-        <motion.div
-          className="bg-panel border border-divider rounded-md flex flex-col overflow-hidden col-span-2"
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, delay: 0.2 }}
-      >
-        <div className="px-5 py-3 border-b border-divider flex items-center gap-2 shrink-0">
-          <Shield size={14} className="text-accent-cyan" />
-          <h2 className="text-xs font-semibold tracking-[0.08em] uppercase text-foreground-secondary">
-            AI Operating Model
-          </h2>
-        </div>
-        <div className="flex items-center justify-center py-8 px-6">
-          <div className="flex items-center gap-0 w-full">
-            {operatingModelNodes.map((node, i) => (
-              <div key={node.title} className="flex items-center flex-1 min-w-0">
-                <motion.div
-                  className="w-full bg-background/40 border border-divider rounded-md px-4 py-4 text-center"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: 0.08 * i }}
-                >
-                  <div className="text-sm font-semibold text-accent-cyan uppercase tracking-[0.06em]">
-                    {node.title}
-                  </div>
-                  <p className="text-[11px] text-foreground-secondary mt-1 leading-relaxed">
-                    {node.desc}
-                  </p>
-                </motion.div>
-                {i < operatingModelNodes.length - 1 && (
-                  <div className="flex items-center px-1 shrink-0">
-                    <div className="w-4 h-px bg-accent-cyan/40" />
-                    <ChevronDown size={12} className="text-accent-cyan/60 -rotate-90" />
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </motion.div>
       </div>
     </div>
   );
