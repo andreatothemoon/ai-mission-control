@@ -78,7 +78,7 @@ export default function AgentNetwork({ activeAgents }: AgentNetworkProps) {
         <div className="w-full mt-3 pt-3 border-t border-dashed border-divider">
           <span className="text-[11px] font-semibold tracking-[0.08em] uppercase text-foreground-secondary mb-2 block">Knowledge Sources</span>
           <div className="flex flex-wrap gap-2">
-            {["SOPs", "Product Specs", "Regulations", "Data Feeds", "Additional Systems"].map((source) => (
+            {["SOPs", "Product Specs", "Regulations", "Data Feeds", "Additional Systems", "Guidelines", "Factsheets", "Databases"].map((source) => (
               <div
                 key={source}
                 className="text-[11px] font-medium tracking-wider uppercase text-foreground-secondary bg-foreground/5 border border-divider rounded-sm px-3 py-1.5"
