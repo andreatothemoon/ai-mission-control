@@ -49,9 +49,9 @@ const layers = {
     label: "AI Execution Layer",
     nodes: [
       { title: "Idea", bullets: ["Product opportunity", "User problem", "Operational need"] },
+      { title: "Design", bullets: ["Prototyping", "Sanity check", "Initial design"] },
       { title: "AI Analysis", bullets: ["Research support", "Regulatory context", "Specification generation"] },
       { title: "Assisted Delivery", bullets: ["AI-assisted coding", "Test generation", "Documentation creation"] },
-      { title: "Design", bullets: ["Prototyping", "Sanity check", "Initial design"] },
     ],
     accent: "accent-cyan",
   },
