@@ -121,7 +121,7 @@ export default function GovernanceView() {
       <div className="flex flex-col gap-4 min-h-0 flex-1">
         {/* Operating Model */}
         <motion.div
-          className="bg-panel border border-divider rounded-md flex flex-col overflow-hidden shrink-0"
+          className="bg-panel border border-divider rounded-md flex flex-col overflow-hidden flex-1"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
