@@ -57,7 +57,7 @@ const layers = {
   },
   humanAccountability: {
     label: "Human Validation & Decision",
-    items: ["Product judgement", "Engineering validation", "Risk oversight"],
+    items: ["Product judgement", "Engineering validation", "Manual QA"],
     accent: "foreground",
   },
   monitoring: {
