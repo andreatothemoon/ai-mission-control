@@ -42,7 +42,7 @@ const useCases = [
 const layers = {
   governance: {
     label: "Governance",
-    items: ["Agent Catalogue", "Use Case Register", "Risk Controls"],
+    items: ["Agent Catalogue", "Use Case Register", "PLM", "Change Management"],
     accent: "accent-yellow",
   },
   aiExecution: {
