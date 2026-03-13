@@ -40,11 +40,10 @@ const useCases = [
 ];
 
 const operatingModelNodes = [
-  { title: "AI Strategy", desc: "Defines the vision, priorities, and investment approach for AI across the organisation." },
-  { title: "AI Governance", desc: "Defines policies, controls, and risk oversight for all AI systems." },
-  { title: "AI Development", desc: "Builds agents and AI capabilities using approved frameworks." },
-  { title: "AI Deployment", desc: "Manages release, integration, and production readiness of AI systems." },
-  { title: "AI Monitoring", desc: "Ensures safe operation and compliance through ongoing oversight." },
+  { title: "Research", desc: "Explore opportunities, gather insights, and identify high-value AI use cases." },
+  { title: "Prioritise", desc: "Assess feasibility, risk, and impact to determine what to build next." },
+  { title: "Build", desc: "Develop, test, and deploy AI agents using approved frameworks." },
+  { title: "Learn", desc: "Measure outcomes, capture feedback, and iterate for continuous improvement." },
 ];
 
 /* ─── Helpers ────────────────────────────────────────────────── */
@@ -107,7 +106,7 @@ export default function GovernanceView() {
           <div className="px-5 py-3 border-b border-divider flex items-center gap-2 shrink-0">
             <Shield size={14} className="text-accent-cyan" />
             <h2 className="text-xs font-semibold tracking-[0.08em] uppercase text-foreground-secondary">
-              AI Operating Model
+              Operating Model
             </h2>
           </div>
           <div className="flex-1 flex items-center justify-center py-6 px-6">
