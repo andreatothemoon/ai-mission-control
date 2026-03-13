@@ -39,13 +39,33 @@ const useCases = [
   { useCase: "Automated policy drafting", area: "Risk & Compliance", capability: "Document generation", risk: "High", approval: "Restricted", lastReview: "2026-03-11" },
 ];
 
-const pipelineNodes = [
-  { title: "Idea", bullets: ["Product opportunity", "User problem", "Operational need"], accent: "text-foreground", border: "border-foreground/20" },
-  { title: "AI Analysis", bullets: ["Research support", "Regulatory context", "Spec generation"], accent: "text-accent-cyan", border: "border-accent-cyan/30" },
-  { title: "Human Decision", bullets: ["Product judgement", "Engineering validation", "Risk oversight"], accent: "text-foreground", border: "border-foreground/20" },
-  { title: "Delivery", bullets: ["Engineering build", "Operational readiness", "Product release"], accent: "text-accent-cyan", border: "border-accent-cyan/30" },
-  { title: "Monitoring", bullets: ["Operational monitoring", "Compliance oversight", "Continuous improvement"], accent: "text-accent-green", border: "border-accent-green/30" },
-];
+const layers = {
+  governance: {
+    label: "Governance",
+    items: ["Agent Catalogue", "Use Case Register", "Risk Controls"],
+    accent: "accent-yellow",
+  },
+  aiExecution: {
+    label: "AI Execution Layer",
+    nodes: [
+      { title: "Idea", bullets: ["Product opportunity", "User problem", "Operational need"] },
+      { title: "AI Analysis", bullets: ["Research support", "Regulatory context", "Specification generation"] },
+      { title: "AI-Assisted Build", bullets: ["AI-assisted coding", "Test generation", "Documentation creation"] },
+      { title: "Product Delivery", bullets: ["Engineering build", "Operational readiness", "Release"] },
+    ],
+    accent: "accent-cyan",
+  },
+  humanAccountability: {
+    label: "Human Validation & Decision",
+    items: ["Product judgement", "Engineering validation", "Risk oversight"],
+    accent: "foreground",
+  },
+  monitoring: {
+    label: "Monitoring & Feedback",
+    items: ["Operational monitoring", "Compliance oversight", "Continuous improvement"],
+    accent: "accent-green",
+  },
+};
 
 const governanceItems = ["Agent Catalogue", "Use Case Register", "Risk Controls"];
 
