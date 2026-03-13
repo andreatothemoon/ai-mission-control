@@ -122,8 +122,8 @@ export default function GovernanceView() {
         </div>
       </div>
 
-      {/* ── Top Row: Catalogue + Use Case Register ── */}
-      <div className="grid grid-cols-2 gap-4 min-h-0 max-h-[50vh]">
+      {/* ── Main Grid: Catalogue + Use Case Register + Operating Model ── */}
+      <div className="grid grid-cols-2 gap-4 min-h-0 flex-1">
         {/* AI Agent Catalogue */}
         <motion.div
           className="bg-panel border border-divider rounded-md flex flex-col overflow-hidden"
@@ -299,11 +299,10 @@ export default function GovernanceView() {
             </table>
           </div>
         </motion.div>
-      </div>
 
-      {/* ── AI Operating Model ── */}
-      <motion.div
-        className="bg-panel border border-divider rounded-md flex flex-col overflow-hidden"
+        {/* ── AI Operating Model ── */}
+        <motion.div
+          className="bg-panel border border-divider rounded-md flex flex-col overflow-hidden col-span-2"
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.2 }}
@@ -342,6 +341,7 @@ export default function GovernanceView() {
           </div>
         </div>
       </motion.div>
+      </div>
     </div>
   );
 }
