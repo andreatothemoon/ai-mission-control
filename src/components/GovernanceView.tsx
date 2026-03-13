@@ -268,9 +268,9 @@ export default function GovernanceView() {
           </div>
         </motion.div>
 
-        {/* AI Use Case Register */}
+        {/* Quick Links */}
         <motion.div
-          className="bg-panel border border-divider rounded-md flex flex-col overflow-hidden"
+          className="bg-panel border border-divider rounded-md flex flex-col overflow-hidden shrink-0"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.1 }}
@@ -278,104 +278,27 @@ export default function GovernanceView() {
           <div className="px-5 py-3 border-b border-divider flex items-center gap-2 shrink-0">
             <FileCheck size={14} className="text-accent-cyan" />
             <h2 className="text-xs font-semibold tracking-[0.08em] uppercase text-foreground-secondary">
-              AI Use Case Register
+              Resources
             </h2>
           </div>
-
-          {/* Filters */}
-          <div className="px-5 py-2.5 border-b border-divider flex items-center gap-4 shrink-0">
-            <div className="flex items-center gap-1.5">
-              <span className="text-[10px] font-medium uppercase tracking-wider text-foreground-secondary">
-                Area
-              </span>
-              <div className="relative">
-                <select
-                  value={areaFilter}
-                  onChange={(e) => setAreaFilter(e.target.value)}
-                  className="appearance-none bg-panel border border-divider text-[11px] text-foreground pl-2 pr-6 py-1 rounded-sm focus:outline-none focus:ring-1 focus:ring-accent-cyan [&>option]:bg-panel [&>option]:text-foreground"
-                >
-                  {allAreas.map((a) => (
-                    <option key={a} value={a}>
-                      {a}
-                    </option>
-                  ))}
-                </select>
-                <ChevronDown
-                  size={10}
-                  className="absolute right-1.5 top-1/2 -translate-y-1/2 text-foreground-secondary pointer-events-none"
-                />
-              </div>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <span className="text-[10px] font-medium uppercase tracking-wider text-foreground-secondary">
-                Status
-              </span>
-              <div className="relative">
-                <select
-                  value={approvalFilter}
-                  onChange={(e) => setApprovalFilter(e.target.value)}
-                  className="appearance-none bg-panel border border-divider text-[11px] text-foreground pl-2 pr-6 py-1 rounded-sm focus:outline-none focus:ring-1 focus:ring-accent-cyan [&>option]:bg-panel [&>option]:text-foreground"
-                >
-                  {allApprovals.map((a) => (
-                    <option key={a} value={a}>
-                      {a}
-                    </option>
-                  ))}
-                </select>
-                <ChevronDown
-                  size={10}
-                  className="absolute right-1.5 top-1/2 -translate-y-1/2 text-foreground-secondary pointer-events-none"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Table */}
-          <div className="flex-1 overflow-y-auto">
-            <table className="w-full text-left">
-              <thead className="sticky top-0 bg-panel z-10">
-                <tr className="border-b border-divider">
-                  {["Use Case", "Business Area", "AI Capability", "Risk", "Status", "Last Review"].map(
-                    (h) => (
-                      <th
-                        key={h}
-                        className="px-4 py-2 text-[10px] font-semibold tracking-[0.08em] uppercase text-foreground-secondary"
-                      >
-                        {h}
-                      </th>
-                    )
-                  )}
-                </tr>
-              </thead>
-              <tbody>
-                {filteredCases.map((uc, i) => (
-                  <motion.tr
-                    key={uc.useCase}
-                    className="border-b border-divider last:border-b-0"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.2, delay: 0.02 * i }}
-                  >
-                    <td className="px-4 py-2.5 text-sm text-foreground">{uc.useCase}</td>
-                    <td className="px-4 py-2.5 text-[11px] text-foreground-secondary">{uc.area}</td>
-                    <td className="px-4 py-2.5 text-[11px] text-foreground-secondary">{uc.capability}</td>
-                    <td className="px-4 py-2.5">
-                      <span className={`text-[10px] font-semibold uppercase tracking-wider ${riskColor[uc.risk]}`}>
-                        {uc.risk}
-                      </span>
-                    </td>
-                    <td className="px-4 py-2.5">
-                      <span className={`text-[10px] font-semibold uppercase tracking-wider ${approvalColor[uc.approval]}`}>
-                        {uc.approval}
-                      </span>
-                    </td>
-                    <td className="px-4 py-2.5 text-[11px] font-mono text-foreground-secondary">
-                      {uc.lastReview}
-                    </td>
-                  </motion.tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="px-5 py-3 flex flex-col gap-2">
+            {[
+              { label: "AI Use Case Register", href: "#" },
+              { label: "AI Operating Model", href: "#" },
+              { label: "AI Agent Catalogue", href: "#" },
+              { label: "Current Pilots", href: "#" },
+            ].map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-[12px] text-accent-cyan hover:text-foreground transition-colors tracking-wide group"
+              >
+                <Eye size={12} className="text-foreground-secondary group-hover:text-accent-cyan transition-colors" />
+                {link.label}
+              </a>
+            ))}
           </div>
         </motion.div>
       </div>
