@@ -127,27 +127,11 @@ export default function GovernanceView() {
           transition={{ duration: 0.4 }}
         >
           <div className="px-5 py-3 border-b border-divider shrink-0 flex items-center justify-between">
-            <div>
-              <div className="flex items-center gap-2">
-                <Shield size={14} className="text-accent-cyan" />
-                <h2 className="text-xs font-semibold tracking-[0.08em] uppercase text-foreground-secondary">
-                  Operating Model
-                </h2>
-              </div>
-              <p className="text-[10px] text-foreground-secondary/60 mt-1 tracking-wide">
-                AI-first product development in a regulated environment
-              </p>
-            </div>
-            <div className="flex flex-col items-end gap-0.5">
-              <span className="text-[9px] font-semibold tracking-[0.1em] uppercase text-foreground-secondary/50">
-                Operating Mode
-              </span>
-              <div className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent-green animate-pulse" />
-                <span className="text-[10px] font-mono tracking-wider text-foreground-secondary">
-                  AI-FIRST • HUMAN ACCOUNTABLE
-                </span>
-              </div>
+            <div className="flex items-center gap-2">
+              <Shield size={14} className="text-accent-cyan" />
+              <h2 className="text-xs font-semibold tracking-[0.08em] uppercase text-foreground-secondary">
+                Operating Model
+              </h2>
             </div>
           </div>
 
