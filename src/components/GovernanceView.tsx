@@ -98,7 +98,7 @@ export default function GovernanceView() {
     <div className="col-start-2 row-start-2 row-span-2 overflow-y-auto flex flex-col gap-4 p-4">
 
       {/* ── Operating Model + Use Case Register ── */}
-      <div className="grid grid-cols-2 gap-4 min-h-0 flex-1">
+      <div className="flex flex-col gap-4 min-h-0 flex-1">
         {/* Operating Model */}
         <motion.div
           className="bg-panel border border-divider rounded-md flex flex-col overflow-hidden"
