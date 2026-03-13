@@ -94,33 +94,6 @@ export default function GovernanceView() {
 
   return (
     <div className="col-start-2 row-start-2 row-span-2 overflow-y-auto flex flex-col gap-4 p-4">
-      {/* ── Governance Telemetry Strip ── */}
-      <div className="flex items-center justify-between bg-panel border border-divider rounded-md px-5 py-3">
-        <span className="text-[11px] font-semibold tracking-[0.1em] uppercase text-accent-cyan">
-          AI Governance Command Center
-        </span>
-        <div className="flex items-center gap-8">
-          {[
-            { label: "Registered Agents", value: String(agents.length) },
-            { label: "Active Use Cases", value: String(approvedCount) },
-            { label: "Under Review", value: String(reviewCount) },
-            { label: "Governance Status", value: "NOMINAL", accent: true },
-          ].map((t) => (
-            <div key={t.label} className="flex items-center gap-2">
-              <span className="text-[10px] font-medium tracking-[0.06em] uppercase text-foreground-secondary">
-                {t.label}
-              </span>
-              <span
-                className={`text-sm font-mono font-semibold tabular-nums ${
-                  t.accent ? "text-accent-green" : "text-foreground"
-                }`}
-              >
-                {t.value}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
 
       {/* ── AI Operating Model ── */}
       <motion.div
