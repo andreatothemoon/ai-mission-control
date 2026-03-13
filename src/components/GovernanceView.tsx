@@ -16,10 +16,10 @@ const agents = [
   { name: "AstraOps Agent", purpose: "Operational processes & SOP guidance", owner: "Operations", risk: "Medium", status: "Active" },
   { name: "COBS Voyager Agent", purpose: "Customer outcome tracking & reporting", owner: "Customer Success", risk: "Low", status: "Active" },
   { name: "Product Spaceship Agent", purpose: "Product specs & documentation generation", owner: "Product", risk: "Low", status: "Active" },
-  { name: "Asteroids Incident Agent", purpose: "Incident triage & intelligence", owner: "Engineering", risk: "High", status: "Active" },
-  { name: "Insight Satellite Network", purpose: "Data insights & MI reporting", owner: "Data & Analytics", risk: "Medium", status: "Active" },
-  { name: "Observatory Agent", purpose: "Competitor research & market analysis", owner: "Strategy", risk: "Low", status: "Active" },
-  { name: "Mars Fund Agent", purpose: "Investment & asset analysis", owner: "Finance", risk: "High", status: "Review Required" },
+  { name: "Asteroids Incident Agent", purpose: "Incident triage & intelligence", owner: "Engineering", risk: "High", status: "In Development" },
+  { name: "Insight Satellite Network", purpose: "Data insights & MI reporting", owner: "Data & Analytics", risk: "Medium", status: "In Development" },
+  { name: "Observatory Agent", purpose: "Competitor research & market analysis", owner: "Strategy", risk: "Low", status: "In Development" },
+  { name: "Mars Fund Agent", purpose: "Investment & asset analysis", owner: "Finance", risk: "High", status: "Active" },
   { name: "Launchpad Agent", purpose: "Content writing & communications", owner: "Marketing", risk: "Low", status: "Active" },
   { name: "Compliance Agent", purpose: "Consumer Duty and regulatory analysis", owner: "Risk & Compliance", risk: "Medium", status: "Active" },
   { name: "Master Agent", purpose: "Routes and orchestrates all agent tasks", owner: "Platform", risk: "Medium", status: "Active" },
@@ -51,13 +51,13 @@ const operatingModelNodes = [
 
 const statusColor: Record<string, string> = {
   Active: "bg-accent-green",
-  "Review Required": "bg-accent-yellow",
+  "In Development": "bg-accent-yellow",
   Inactive: "bg-muted",
 };
 
 const statusTextColor: Record<string, string> = {
   Active: "text-accent-green",
-  "Review Required": "text-accent-yellow",
+  "In Development": "text-accent-yellow",
   Inactive: "text-foreground-secondary",
 };
 
