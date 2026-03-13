@@ -191,7 +191,7 @@ export default function GovernanceView() {
               <div className="flex items-start justify-center gap-0">
                 {layers.aiExecution.nodes.map((node, i) => (
                   <div key={node.title} className="flex items-start">
-                    <div className="w-[180px] border border-accent-cyan/20 rounded-sm bg-accent-cyan/5 px-4 py-3 flex flex-col items-center">
+                    <div className="w-[180px] border border-accent-cyan/20 rounded-sm bg-accent-cyan/5 px-4 py-3 flex flex-col items-start">
                       <span className="text-[11px] font-semibold tracking-[0.08em] uppercase text-accent-cyan mb-2">
                         {node.title}
                       </span>
