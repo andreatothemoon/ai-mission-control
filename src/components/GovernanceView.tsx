@@ -255,7 +255,7 @@ export default function GovernanceView() {
                 <select
                   value={areaFilter}
                   onChange={(e) => setAreaFilter(e.target.value)}
-                  className="appearance-none bg-background/40 border border-divider text-[11px] text-foreground pl-2 pr-6 py-1 rounded-sm focus:outline-none focus:ring-1 focus:ring-accent-cyan"
+                  className="appearance-none bg-panel border border-divider text-[11px] text-foreground pl-2 pr-6 py-1 rounded-sm focus:outline-none focus:ring-1 focus:ring-accent-cyan [&>option]:bg-panel [&>option]:text-foreground"
                 >
                   {allAreas.map((a) => (
                     <option key={a} value={a}>
