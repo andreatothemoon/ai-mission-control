@@ -39,15 +39,35 @@ const useCases = [
   { useCase: "Automated policy drafting", area: "Risk & Compliance", capability: "Document generation", risk: "High", approval: "Restricted", lastReview: "2026-03-11" },
 ];
 
-const pipelineNodes = [
-  { title: "Idea", bullets: ["Product opportunity", "User problem", "Operational need"], accent: "text-foreground", border: "border-foreground/20" },
-  { title: "AI Analysis", bullets: ["Research support", "Regulatory context", "Spec generation"], accent: "text-accent-cyan", border: "border-accent-cyan/30" },
-  { title: "Human Decision", bullets: ["Product judgement", "Engineering validation", "Risk oversight"], accent: "text-foreground", border: "border-foreground/20" },
-  { title: "Delivery", bullets: ["Engineering build", "Operational readiness", "Product release"], accent: "text-accent-cyan", border: "border-accent-cyan/30" },
-  { title: "Monitoring", bullets: ["Operational monitoring", "Compliance oversight", "Continuous improvement"], accent: "text-accent-green", border: "border-accent-green/30" },
-];
+const layers = {
+  governance: {
+    label: "Governance",
+    items: ["Agent Catalogue", "Use Case Register", "Risk Controls"],
+    accent: "accent-yellow",
+  },
+  aiExecution: {
+    label: "AI Execution Layer",
+    nodes: [
+      { title: "Idea", bullets: ["Product opportunity", "User problem", "Operational need"] },
+      { title: "AI Analysis", bullets: ["Research support", "Regulatory context", "Specification generation"] },
+      { title: "AI-Assisted Build", bullets: ["AI-assisted coding", "Test generation", "Documentation creation"] },
+      { title: "Product Delivery", bullets: ["Engineering build", "Operational readiness", "Release"] },
+    ],
+    accent: "accent-cyan",
+  },
+  humanAccountability: {
+    label: "Human Validation & Decision",
+    items: ["Product judgement", "Engineering validation", "Risk oversight"],
+    accent: "foreground",
+  },
+  monitoring: {
+    label: "Monitoring & Feedback",
+    items: ["Operational monitoring", "Compliance oversight", "Continuous improvement"],
+    accent: "accent-green",
+  },
+};
 
-const governanceItems = ["Agent Catalogue", "Use Case Register", "Risk Controls"];
+
 
 /* ─── Helpers ────────────────────────────────────────────────── */
 
@@ -106,31 +126,44 @@ export default function GovernanceView() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
         >
-          <div className="px-5 py-3 border-b border-divider shrink-0">
-            <div className="flex items-center gap-2">
-              <Shield size={14} className="text-accent-cyan" />
-              <h2 className="text-xs font-semibold tracking-[0.08em] uppercase text-foreground-secondary">
-                Operating Model
-              </h2>
+          <div className="px-5 py-3 border-b border-divider shrink-0 flex items-center justify-between">
+            <div>
+              <div className="flex items-center gap-2">
+                <Shield size={14} className="text-accent-cyan" />
+                <h2 className="text-xs font-semibold tracking-[0.08em] uppercase text-foreground-secondary">
+                  Operating Model
+                </h2>
+              </div>
+              <p className="text-[10px] text-foreground-secondary/60 mt-1 tracking-wide">
+                AI-first product development in a regulated environment
+              </p>
             </div>
-            <p className="text-[10px] text-foreground-secondary/60 mt-1 tracking-wide">
-              AI-first product development in a regulated environment
-            </p>
+            <div className="flex flex-col items-end gap-0.5">
+              <span className="text-[9px] font-semibold tracking-[0.1em] uppercase text-foreground-secondary/50">
+                Operating Mode
+              </span>
+              <div className="flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent-green animate-pulse" />
+                <span className="text-[10px] font-mono tracking-wider text-foreground-secondary">
+                  AI-FIRST • HUMAN ACCOUNTABLE
+                </span>
+              </div>
+            </div>
           </div>
 
-          <div className="flex flex-col justify-center px-6 py-5 gap-5">
-            {/* Governance Layer */}
+          <div className="flex flex-col px-6 py-4 gap-0">
+            {/* ── Governance Layer ── */}
             <motion.div
-              className="flex flex-col items-center gap-2"
+              className="flex flex-col items-center gap-2 pb-3"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.4, delay: 0.1 }}
             >
-              <span className="text-[11px] font-semibold tracking-[0.1em] uppercase text-accent-yellow">
-                Governance
+              <span className="text-[10px] font-semibold tracking-[0.12em] uppercase text-accent-yellow">
+                {layers.governance.label}
               </span>
               <div className="flex items-center gap-3">
-                {governanceItems.map((item) => (
+                {layers.governance.items.map((item) => (
                   <div
                     key={item}
                     className="px-3 py-1.5 border border-accent-yellow/25 rounded-sm bg-accent-yellow/5 text-[11px] text-accent-yellow/80 font-medium tracking-wide"
@@ -146,37 +179,92 @@ export default function GovernanceView() {
               </div>
             </motion.div>
 
-            {/* Pipeline Flow */}
-            <div className="flex items-start justify-center gap-0">
-              {pipelineNodes.map((node, i) => (
-                <div key={node.title} className="flex items-start">
-                  <motion.div
-                    className={`w-[160px] border ${node.border} rounded-sm bg-background/30 px-4 py-3.5 flex flex-col items-center`}
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: 0.05 * i + 0.2 }}
+            <div className="w-full h-px bg-divider" />
+
+            {/* ── AI Execution Layer ── */}
+            <motion.div
+              className="flex flex-col items-center gap-3 py-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.4, delay: 0.15 }}
+            >
+              <span className="text-[10px] font-semibold tracking-[0.12em] uppercase text-accent-cyan">
+                {layers.aiExecution.label}
+              </span>
+              <div className="flex items-start justify-center gap-0">
+                {layers.aiExecution.nodes.map((node, i) => (
+                  <div key={node.title} className="flex items-start">
+                    <div className="w-[180px] border border-accent-cyan/20 rounded-sm bg-accent-cyan/5 px-4 py-3 flex flex-col items-center">
+                      <span className="text-[11px] font-semibold tracking-[0.08em] uppercase text-accent-cyan mb-2">
+                        {node.title}
+                      </span>
+                      <div className="flex flex-col gap-1 w-full">
+                        {node.bullets.map((b) => (
+                          <div key={b} className="flex items-start gap-1.5">
+                            <span className="text-foreground-secondary/40 text-[9px] mt-[3px]">•</span>
+                            <span className="text-[11px] text-foreground-secondary/70 leading-snug">{b}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    {i < layers.aiExecution.nodes.length - 1 && (
+                      <div className="flex items-center h-[28px] mt-[10px]">
+                        <div className="w-4 h-px bg-accent-cyan/20" />
+                        <ArrowDown size={8} className="text-accent-cyan/30 rotate-[-90deg] -mx-0.5" />
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            <div className="w-full h-px bg-divider" />
+
+            {/* ── Human Accountability Layer ── */}
+            <motion.div
+              className="flex flex-col items-center gap-2 py-3"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.4, delay: 0.2 }}
+            >
+              <span className="text-[10px] font-semibold tracking-[0.12em] uppercase text-foreground-secondary">
+                {layers.humanAccountability.label}
+              </span>
+              <div className="flex items-center gap-4">
+                {layers.humanAccountability.items.map((item) => (
+                  <div
+                    key={item}
+                    className="px-3 py-1.5 border border-foreground/15 rounded-sm bg-foreground/5 text-[11px] text-foreground/80 font-medium tracking-wide"
                   >
-                    <span className={`text-[11px] font-semibold tracking-[0.08em] uppercase ${node.accent} mb-2`}>
-                      {node.title}
-                    </span>
-                    <div className="flex flex-col gap-1 w-full">
-                      {node.bullets.map((b) => (
-                        <div key={b} className="flex items-start gap-1.5">
-                          <span className="text-foreground-secondary/40 text-[9px] mt-[3px]">•</span>
-                          <span className="text-[11px] text-foreground-secondary/70 leading-snug">{b}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </motion.div>
-                  {i < pipelineNodes.length - 1 && (
-                    <div className="flex items-center h-[28px] mt-[12px]">
-                      <div className="w-5 h-px bg-foreground/15" />
-                      <ArrowDown size={8} className="text-foreground/25 rotate-[-90deg] -mx-0.5" />
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            <div className="w-full h-px bg-divider" />
+
+            {/* ── Monitoring & Feedback Layer ── */}
+            <motion.div
+              className="flex flex-col items-center gap-2 pt-3"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.4, delay: 0.25 }}
+            >
+              <span className="text-[10px] font-semibold tracking-[0.12em] uppercase text-accent-green">
+                {layers.monitoring.label}
+              </span>
+              <div className="flex items-center gap-4">
+                {layers.monitoring.items.map((item) => (
+                  <div
+                    key={item}
+                    className="px-3 py-1.5 border border-accent-green/20 rounded-sm bg-accent-green/5 text-[11px] text-accent-green/70 font-medium tracking-wide"
+                  >
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </motion.div>
           </div>
         </motion.div>
 
