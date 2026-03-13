@@ -45,7 +45,7 @@ export default function TelemetryBar({ isGenerating }: TelemetryBarProps) {
       <div className="flex items-center gap-6">
         <TelemetryItem label="Agents Online" value="10" />
         <div className="w-px h-8 bg-divider" />
-        <TelemetryItem label="Active Tasks" value={isGenerating ? "1" : "0"} />
+        <TelemetryItem label="Active Tasks" value={String(activeTasks)} />
         <div className="w-px h-8 bg-divider" />
         <TelemetryItem label="Knowledge Sources" value="100+" />
       </div>
