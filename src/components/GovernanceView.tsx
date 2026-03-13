@@ -67,7 +67,7 @@ const layers = {
   },
 };
 
-const governanceItems = ["Agent Catalogue", "Use Case Register", "Risk Controls"];
+
 
 /* ─── Helpers ────────────────────────────────────────────────── */
 
