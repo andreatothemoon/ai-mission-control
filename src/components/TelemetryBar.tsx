@@ -58,7 +58,7 @@ export default function TelemetryBar({ isGenerating }: TelemetryBarProps) {
 
       <div className="flex flex-col items-center">
         <div className="text-[11px] font-medium tracking-[0.08em] uppercase text-foreground-secondary">Session Timer</div>
-        <span className="text-2xl font-mono tabular-nums font-semibold text-foreground">{sessionTime}</span>
+        <span className="text-base font-mono tabular-nums font-semibold text-foreground">{sessionTime}</span>
       </div>
 
       <div className="flex items-center gap-6">
