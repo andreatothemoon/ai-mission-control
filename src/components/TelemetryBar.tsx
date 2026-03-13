@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 interface TelemetryItemProps {
   label: string;
   value: string;
