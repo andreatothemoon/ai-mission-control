@@ -270,35 +270,38 @@ export default function GovernanceView() {
 
         {/* Quick Links */}
         <motion.div
-          className="bg-panel border border-divider rounded-md flex flex-col overflow-hidden shrink-0"
+          className="bg-panel border border-divider rounded-md overflow-hidden shrink-0"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.1 }}
         >
-          <div className="px-5 py-3 border-b border-divider flex items-center gap-2 shrink-0">
-            <FileCheck size={14} className="text-accent-cyan" />
-            <h2 className="text-xs font-semibold tracking-[0.08em] uppercase text-foreground-secondary">
-              Resources
-            </h2>
-          </div>
-          <div className="px-5 py-3 flex flex-col gap-2">
-            {[
-              { label: "AI Use Case Register", href: "#" },
-              { label: "AI Operating Model", href: "#" },
-              { label: "AI Agent Catalogue", href: "#" },
-              { label: "Current Pilots", href: "#" },
-            ].map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-[12px] text-accent-cyan hover:text-foreground transition-colors tracking-wide group"
-              >
-                <Eye size={12} className="text-foreground-secondary group-hover:text-accent-cyan transition-colors" />
-                {link.label}
-              </a>
-            ))}
+          <div className="px-5 py-2.5 flex items-center gap-4">
+            <div className="flex items-center gap-2 shrink-0">
+              <FileCheck size={14} className="text-accent-cyan" />
+              <h2 className="text-xs font-semibold tracking-[0.08em] uppercase text-foreground-secondary">
+                Resources
+              </h2>
+            </div>
+            <div className="w-px h-4 bg-divider" />
+            <div className="flex items-center gap-4">
+              {[
+                { label: "AI Use Case Register", href: "#" },
+                { label: "AI Operating Model", href: "#" },
+                { label: "AI Agent Catalogue", href: "#" },
+                { label: "Current Pilots", href: "#" },
+              ].map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-[11px] text-accent-cyan hover:text-foreground transition-colors tracking-wide group"
+                >
+                  <Eye size={10} className="text-foreground-secondary group-hover:text-accent-cyan transition-colors" />
+                  {link.label}
+                </a>
+              ))}
+            </div>
           </div>
         </motion.div>
       </div>
