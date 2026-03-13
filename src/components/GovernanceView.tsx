@@ -39,12 +39,15 @@ const useCases = [
   { useCase: "Automated policy drafting", area: "Risk & Compliance", capability: "Document generation", risk: "High", approval: "Restricted", lastReview: "2026-03-11" },
 ];
 
-const operatingModelNodes = [
-  { title: "Research", desc: "Explore opportunities, gather insights, and identify high-value AI use cases." },
-  { title: "Prioritise", desc: "Assess feasibility, risk, and impact to determine what to build next." },
-  { title: "Build", desc: "Develop, test, and deploy AI agents using approved frameworks." },
-  { title: "Learn", desc: "Measure outcomes, capture feedback, and iterate for continuous improvement." },
+const pipelineNodes = [
+  { title: "Idea", bullets: ["Product opportunity", "User problem", "Operational need"], accent: "text-foreground", border: "border-foreground/20" },
+  { title: "AI Analysis", bullets: ["Research support", "Regulatory context", "Spec generation"], accent: "text-accent-cyan", border: "border-accent-cyan/30" },
+  { title: "Human Decision", bullets: ["Product judgement", "Engineering validation", "Risk oversight"], accent: "text-foreground", border: "border-foreground/20" },
+  { title: "Delivery", bullets: ["Engineering build", "Operational readiness", "Product release"], accent: "text-accent-cyan", border: "border-accent-cyan/30" },
+  { title: "Monitoring", bullets: ["Operational monitoring", "Compliance oversight", "Continuous improvement"], accent: "text-accent-green", border: "border-accent-green/30" },
 ];
+
+const governanceItems = ["Agent Catalogue", "Use Case Register", "Risk Controls"];
 
 /* ─── Helpers ────────────────────────────────────────────────── */
 
