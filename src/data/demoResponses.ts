@@ -9,18 +9,18 @@ export interface DemoScenario {
 export const demoScenarios: DemoScenario[] = [
   {
     id: 1,
-    prompt: "What are the operational steps when a pension transfer fails mid-process?",
+    prompt: "What is the ISA transfer process?",
     involvedAgents: ["MASTER_AGENT", "OPS_AGENT"],
     activitySteps: [
       "Routing to OPS AGENT",
       "Retrieving internal SOPs",
       "Generating response",
     ],
-    response: `1. Identify failure point in transfer workflow
-2. Notify Operations Team via internal alert system
-3. Contact ceding scheme administrator with failure code
-4. Escalate to Senior Ops Manager if unresolved within 24h per SLA
-5. Log incident with code PENSION_TRANSFER_FAIL_01 for audit trail`,
+    response: `1. Customer initiates transfer in OSS
+2. Ceding provider receives signed transfer form
+3. Ceding provider sends funds and Subscription History form
+4. Ops team adds funds to accounts and update annual allowance
+5. Funds are automatically invested as per customer's instructions`,
   },
   {
     id: 2,
