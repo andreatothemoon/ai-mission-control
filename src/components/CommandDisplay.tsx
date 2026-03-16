@@ -37,59 +37,69 @@ export default function CommandDisplay({ prompt, response, isGenerating, activit
       </div>
 
       <div className="flex-1 p-5 overflow-y-auto font-mono text-sm space-y-4">
-        {/* User prompt */}
-        <div>
-          <span className="text-[11px] tracking-[0.08em] uppercase text-foreground-secondary">User:</span>
-          <p className="mt-1 text-foreground whitespace-pre-wrap leading-relaxed">{prompt}</p>
-        </div>
-
-        <div className="border-t border-dashed border-divider" />
-
-        {/* Agent response */}
-        <div>
-          <span className="text-[11px] tracking-[0.08em] uppercase text-foreground-secondary">Agent:</span>
-
-          {isGenerating && !response && (
-            <div className="mt-3 flex items-center gap-3">
-              <motion.div
-                className="flex gap-1"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-              >
-                {[0, 1, 2].map((i) => (
-                  <motion.div
-                    key={i}
-                    className="w-1.5 h-1.5 rounded-full bg-accent-cyan"
-                    animate={{ opacity: [0.3, 1, 0.3] }}
-                    transition={{ duration: 1, repeat: Infinity, delay: i * 0.2 }}
-                  />
-                ))}
-              </motion.div>
-              <motion.span
-                className="text-xs text-accent-cyan uppercase tracking-wider"
-                key={activityStep}
-                initial={{ opacity: 0, x: -5 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                {activityStep}
-              </motion.span>
+        {!prompt && !response && !isGenerating ? (
+          <div className="flex-1 flex items-center justify-center h-full">
+            <p className="text-[11px] tracking-[0.08em] uppercase text-foreground-secondary/40">
+              Select a scenario to begin
+            </p>
+          </div>
+        ) : (
+          <>
+            {/* User prompt */}
+            <div>
+              <span className="text-[11px] tracking-[0.08em] uppercase text-foreground-secondary">User:</span>
+              <p className="mt-1 text-foreground whitespace-pre-wrap leading-relaxed">{prompt}</p>
             </div>
-          )}
 
-          <AnimatePresence>
-            {response && (
-              <motion.pre
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="mt-2 text-foreground whitespace-pre-wrap leading-relaxed text-sm"
-              >
-                {response}
-              </motion.pre>
-            )}
-          </AnimatePresence>
-        </div>
+            <div className="border-t border-dashed border-divider" />
+
+            {/* Agent response */}
+            <div>
+              <span className="text-[11px] tracking-[0.08em] uppercase text-foreground-secondary">Agent:</span>
+
+              {isGenerating && !response && (
+                <div className="mt-3 flex items-center gap-3">
+                  <motion.div
+                    className="flex gap-1"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                  >
+                    {[0, 1, 2].map((i) => (
+                      <motion.div
+                        key={i}
+                        className="w-1.5 h-1.5 rounded-full bg-accent-cyan"
+                        animate={{ opacity: [0.3, 1, 0.3] }}
+                        transition={{ duration: 1, repeat: Infinity, delay: i * 0.2 }}
+                      />
+                    ))}
+                  </motion.div>
+                  <motion.span
+                    className="text-xs text-accent-cyan uppercase tracking-wider"
+                    key={activityStep}
+                    initial={{ opacity: 0, x: -5 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {activityStep}
+                  </motion.span>
+                </div>
+              )}
+
+              <AnimatePresence>
+                {response && (
+                  <motion.pre
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="mt-2 text-foreground whitespace-pre-wrap leading-relaxed text-sm"
+                  >
+                    {response}
+                  </motion.pre>
+                )}
+              </AnimatePresence>
+            </div>
+          </>
+        )}
       </div>
     </section>
   );
