@@ -1,4 +1,4 @@
-import { LayoutDashboard, Share2, Rocket, GitPullRequest } from "lucide-react";
+import { Target, Share2, Rocket, GitPullRequest } from "lucide-react";
 import React from "react";
 
 export type ActiveView = "overview" | "network" | "engineering" | "governance";
