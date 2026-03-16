@@ -15,11 +15,11 @@ export const timelinePhases = [
 // Maps scenario id → route config
 export const scenarioRoutes: Record<number, ScenarioRoute> = {
   1: {
-    // Operational failure
-    agentPath: ["MASTER_AGENT", "ASTRAOPS_AGENT"],
+    // ISA transfer process
+    agentPath: ["MASTER_AGENT", "OPS_AGENT"],
     knowledgePath: ["KNOWLEDGE_BASE"],
-    timelinePhases: [0, 1, 2],
-    activePhase: 2,
+    timelinePhases: [0, 1, 2, 3],
+    activePhase: 3,
   },
   2: {
     // Consumer Duty compliance
