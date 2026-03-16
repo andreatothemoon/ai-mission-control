@@ -30,7 +30,7 @@ export default function StrategicVectorDiagram() {
     <div className="flex-1 flex flex-col items-center justify-center px-8 relative">
       {/* Section label */}
       <motion.div
-        className="mb-8"
+        className="mb-6"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.4, delay: 0.1 }}
@@ -40,81 +40,105 @@ export default function StrategicVectorDiagram() {
         </span>
       </motion.div>
 
-      {/* Diagram container */}
-      <div className="relative flex flex-col items-center gap-0">
-        {/* Top axis: Expand Capabilities */}
-        <AxisNode
-          label="Expand Capabilities"
-          description="AI enables teams to perform advanced work that previously required specialist expertise."
-          delay={0.3}
-        />
+      {/* Center node: Product Impact — top-center */}
+      <motion.div
+        className="border border-accent-cyan/40 rounded-md px-8 py-4 bg-panel relative"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
+        <div className="absolute inset-0 rounded-md bg-accent-cyan/5" />
+        <div className="relative text-sm font-semibold tracking-[0.12em] uppercase text-accent-cyan">
+          Product Impact
+        </div>
+      </motion.div>
 
-        {/* Vertical line top */}
-        <motion.div
-          className="w-px h-10 bg-accent-cyan/30"
-          initial={{ scaleY: 0 }}
-          animate={{ scaleY: 1 }}
-          transition={{ duration: 0.3, delay: 0.4 }}
-          style={{ transformOrigin: "top" }}
-        />
+      {/* Three vertical lines descending from center */}
+      <div className="flex items-start justify-center w-full max-w-[750px]">
+        {/* Left line */}
+        <div className="flex-1 flex justify-center">
+          <motion.div
+            className="w-px h-12 bg-accent-cyan/30"
+            initial={{ scaleY: 0 }}
+            animate={{ scaleY: 1 }}
+            transition={{ duration: 0.3, delay: 0.4 }}
+            style={{ transformOrigin: "top" }}
+          />
+        </div>
+        {/* Center line */}
+        <div className="flex-1 flex justify-center">
+          <motion.div
+            className="w-px h-12 bg-accent-cyan/30"
+            initial={{ scaleY: 0 }}
+            animate={{ scaleY: 1 }}
+            transition={{ duration: 0.3, delay: 0.45 }}
+            style={{ transformOrigin: "top" }}
+          />
+        </div>
+        {/* Right line */}
+        <div className="flex-1 flex justify-center">
+          <motion.div
+            className="w-px h-12 bg-accent-cyan/30"
+            initial={{ scaleY: 0 }}
+            animate={{ scaleY: 1 }}
+            transition={{ duration: 0.3, delay: 0.5 }}
+            style={{ transformOrigin: "top" }}
+          />
+        </div>
+      </div>
 
-        {/* Middle row: Move Faster — PRODUCT IMPACT — (space for symmetry) */}
-        <div className="flex items-center gap-0">
-          {/* Left axis: Move Faster */}
+      {/* Horizontal connector bar */}
+      <motion.div
+        className="h-px w-full max-w-[500px] bg-accent-cyan/30 -mt-px"
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ duration: 0.4, delay: 0.35 }}
+      />
+
+      {/* Three axis nodes in a row */}
+      <div className="flex items-start justify-center w-full max-w-[750px] gap-4 mt-0">
+        <div className="flex-1 flex flex-col items-center">
+          <motion.div
+            className="w-px h-6 bg-accent-cyan/30"
+            initial={{ scaleY: 0 }}
+            animate={{ scaleY: 1 }}
+            transition={{ duration: 0.3, delay: 0.5 }}
+            style={{ transformOrigin: "top" }}
+          />
           <AxisNode
             label="Move Faster"
             description="AI accelerates research, documentation, engineering, and operational analysis."
-            delay={0.35}
+            delay={0.5}
           />
-
-          {/* Horizontal line left */}
-          <motion.div
-            className="h-px w-10 bg-accent-cyan/30"
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 0.3, delay: 0.45 }}
-            style={{ transformOrigin: "left" }}
-          />
-
-          {/* Center node */}
-          <motion.div
-            className="border border-accent-cyan/40 rounded-md px-6 py-4 bg-panel relative"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <div className="absolute inset-0 rounded-md bg-accent-cyan/5" />
-            <div className="relative text-sm font-semibold tracking-[0.12em] uppercase text-accent-cyan">
-              Product Impact
-            </div>
-          </motion.div>
-
-          {/* Horizontal line right (invisible spacer for symmetry, or we can leave open) */}
-          <motion.div
-            className="h-px w-10 bg-transparent"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-          />
-
-          {/* Empty spacer to balance left node */}
-          <div className="min-w-[200px]" />
         </div>
-
-        {/* Vertical line bottom */}
-        <motion.div
-          className="w-px h-10 bg-accent-cyan/30"
-          initial={{ scaleY: 0 }}
-          animate={{ scaleY: 1 }}
-          transition={{ duration: 0.3, delay: 0.5 }}
-          style={{ transformOrigin: "top" }}
-        />
-
-        {/* Bottom axis: Operate Safely */}
-        <AxisNode
-          label="Operate Safely"
-          description="Governance and oversight ensure AI is used responsibly in a regulated environment."
-          delay={0.4}
-        />
+        <div className="flex-1 flex flex-col items-center">
+          <motion.div
+            className="w-px h-6 bg-accent-cyan/30"
+            initial={{ scaleY: 0 }}
+            animate={{ scaleY: 1 }}
+            transition={{ duration: 0.3, delay: 0.55 }}
+            style={{ transformOrigin: "top" }}
+          />
+          <AxisNode
+            label="Expand Capabilities"
+            description="AI enables teams to perform advanced work that previously required specialist expertise."
+            delay={0.55}
+          />
+        </div>
+        <div className="flex-1 flex flex-col items-center">
+          <motion.div
+            className="w-px h-6 bg-accent-cyan/30"
+            initial={{ scaleY: 0 }}
+            animate={{ scaleY: 1 }}
+            transition={{ duration: 0.3, delay: 0.6 }}
+            style={{ transformOrigin: "top" }}
+          />
+          <AxisNode
+            label="Operate Safely"
+            description="Governance and oversight ensure AI is used responsibly in a regulated environment."
+            delay={0.6}
+          />
+        </div>
       </div>
 
       {/* Supporting text */}
