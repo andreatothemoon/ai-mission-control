@@ -13,10 +13,10 @@ import { scenarioRoutes } from "@/data/scenarioData";
 
 const Index = () => {
   const [activeView, setActiveView] = useState<ActiveView>("overview");
-  const [currentScenario, setCurrentScenario] = useState<DemoScenario>(demoScenarios[0]);
+  const [currentScenario, setCurrentScenario] = useState<DemoScenario>({ ...demoScenarios[0], prompt: "", response: "" });
   const [isGenerating, setIsGenerating] = useState(false);
   const [activeAgents, setActiveAgents] = useState<string[]>([]);
-  const [displayedResponse, setDisplayedResponse] = useState(demoScenarios[0].response);
+  const [displayedResponse, setDisplayedResponse] = useState("");
   const [activityStep, setActivityStep] = useState("");
   const [completedPhases, setCompletedPhases] = useState<number[]>([]);
   const [activePhase, setActivePhase] = useState(-1);
