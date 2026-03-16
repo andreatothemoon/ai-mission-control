@@ -12,7 +12,7 @@ import { demoScenarios, DemoScenario } from "@/data/demoResponses";
 import { scenarioRoutes } from "@/data/scenarioData";
 
 const Index = () => {
-  const [activeView, setActiveView] = useState<ActiveView>("network");
+  const [activeView, setActiveView] = useState<ActiveView>("overview");
   const [currentScenario, setCurrentScenario] = useState<DemoScenario>(demoScenarios[0]);
   const [isGenerating, setIsGenerating] = useState(false);
   const [activeAgents, setActiveAgents] = useState<string[]>([]);
