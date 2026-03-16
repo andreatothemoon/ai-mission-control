@@ -14,11 +14,11 @@ const AxisNode = ({ label, description, delay, className }: AxisNodeProps) => (
     animate={{ opacity: 1, scale: 1 }}
     transition={{ duration: 0.4, delay }}
   >
-    <div className="border border-divider rounded-md px-5 py-3 bg-panel min-w-[200px]">
-      <div className="text-[11px] font-semibold tracking-[0.12em] uppercase text-foreground">
+    <div className="border border-divider rounded-md px-5 py-4 bg-panel w-[220px]">
+      <div className="text-xs font-semibold tracking-[0.12em] uppercase text-foreground">
         {label}
       </div>
-      <p className="text-[10px] leading-relaxed text-foreground-secondary mt-1.5 max-w-[220px]">
+      <p className="text-[11px] leading-relaxed text-foreground-secondary mt-1.5">
         {description}
       </p>
     </div>
