@@ -53,39 +53,14 @@ export default function StrategicVectorDiagram() {
         </div>
       </motion.div>
 
-      {/* Three vertical lines descending from center */}
-      <div className="flex items-start justify-center w-full max-w-[750px]">
-        {/* Left line */}
-        <div className="flex-1 flex justify-center">
-          <motion.div
-            className="w-px h-12 bg-accent-cyan/30"
-            initial={{ scaleY: 0 }}
-            animate={{ scaleY: 1 }}
-            transition={{ duration: 0.3, delay: 0.4 }}
-            style={{ transformOrigin: "top" }}
-          />
-        </div>
-        {/* Center line */}
-        <div className="flex-1 flex justify-center">
-          <motion.div
-            className="w-px h-12 bg-accent-cyan/30"
-            initial={{ scaleY: 0 }}
-            animate={{ scaleY: 1 }}
-            transition={{ duration: 0.3, delay: 0.45 }}
-            style={{ transformOrigin: "top" }}
-          />
-        </div>
-        {/* Right line */}
-        <div className="flex-1 flex justify-center">
-          <motion.div
-            className="w-px h-12 bg-accent-cyan/30"
-            initial={{ scaleY: 0 }}
-            animate={{ scaleY: 1 }}
-            transition={{ duration: 0.3, delay: 0.5 }}
-            style={{ transformOrigin: "top" }}
-          />
-        </div>
-      </div>
+      {/* Single vertical line from Product Impact down */}
+      <motion.div
+        className="w-px h-12 bg-accent-cyan/30"
+        initial={{ scaleY: 0 }}
+        animate={{ scaleY: 1 }}
+        transition={{ duration: 0.3, delay: 0.4 }}
+        style={{ transformOrigin: "top" }}
+      />
 
       {/* Horizontal connector bar */}
       <motion.div
