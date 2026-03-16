@@ -22,9 +22,9 @@ export const scenarioRoutes: Record<number, ScenarioRoute> = {
     activePhase: 3,
   },
   2: {
-    // Consumer Duty compliance
-    agentPath: ["MASTER_AGENT", "CASSANDRA_AGENT", "COBS_VOYAGER_AGENT"],
-    knowledgePath: ["POLICIES", "KNOWLEDGE_BASE"],
+    // Annual Benefit Statement review
+    agentPath: ["MASTER_AGENT", "COMPLIANCE_AGENT", "CONTENT_WRITING_AGENT"],
+    knowledgePath: ["REGULATIONS", "GUIDELINES"],
     timelinePhases: [0, 1],
     activePhase: 1,
   },
