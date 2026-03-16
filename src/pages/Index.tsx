@@ -62,7 +62,18 @@ const Index = () => {
   return (
     <main className="h-screen w-screen overflow-hidden grid grid-cols-[12%_1fr] grid-rows-[10%_auto_1fr_auto]">
       <TelemetryBar isGenerating={isGenerating} />
-      <NavigationRail activeView={activeView} onViewChange={setActiveView} />
+      <NavigationRail activeView={activeView} onViewChange={(view) => {
+        if (activeView === "network" && view !== "network") {
+          setCurrentScenario({ ...demoScenarios[0], prompt: "", response: "" });
+          setDisplayedResponse("");
+          setIsGenerating(false);
+          setActiveAgents([]);
+          setActivityStep("");
+          setCompletedPhases([]);
+          setActivePhase(-1);
+        }
+        setActiveView(view);
+      }} />
 
       {activeView === "network" ? (
         <>
