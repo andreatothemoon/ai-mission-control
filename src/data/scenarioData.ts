@@ -7,10 +7,9 @@ export interface ScenarioRoute {
 
 export const timelinePhases = [
   "IDEA",
-  "COMPLIANCE REVIEW",
-  "DESIGN",
-  "ENGINEERING",
-  "RELEASE",
+  "COMPLIANCE CHECK",
+  "DELIVERY",
+  "MONITORING",
 ] as const;
 
 // Maps scenario id → route config
