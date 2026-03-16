@@ -118,7 +118,7 @@ export default function StrategicVectorDiagram() {
 
       {/* Supporting text */}
       <motion.p
-        className="text-[11px] text-foreground-secondary/60 text-center mt-10 max-w-lg leading-relaxed"
+        className="text-sm text-foreground-secondary/60 text-center mt-10 max-w-xl leading-relaxed"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.7 }}
