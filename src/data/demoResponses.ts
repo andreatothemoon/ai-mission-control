@@ -24,24 +24,15 @@ export const demoScenarios: DemoScenario[] = [
   },
   {
     id: 2,
-    prompt: "Review the new 'Instant Access Savings' product page for Consumer Duty compliance.",
+    prompt: "Review the copy for the new design of the Annual Benefit Statement document.",
     involvedAgents: ["MASTER_AGENT", "COMPLIANCE_AGENT", "PRODUCT_AGENT"],
     activitySteps: [
       "Routing to COMPLIANCE AGENT",
-      "Cross-referencing Consumer Duty regulations",
+      "Cross-referencing internal standards",
       "Consulting PRODUCT AGENT",
-      "Generating compliance report",
+      "Generating review report",
     ],
-    response: `ANALYSIS: Consumer Duty Compliance Review
-
-PRINCIPLE: Good Outcomes
-CROSS-CUTTING RULE: Act in good faith — PASS
-CROSS-CUTTING RULE: Avoid foreseeable harm — PASS
-CROSS-CUTTING RULE: Enable and support retail customers — ACTION REQUIRED
-
-RECOMMENDATION: The term 'instant' may be misleading if transfers
-take > 5 minutes. Change copy to 'Fast Access' and add microcopy:
-'Transfers typically complete within minutes.'`,
+    response: `The copy for the new design has been reviewed, and it aligns with internal standards and guidelines. No issues were identified, and the content is suitable for use in the updated design.`,
   },
   {
     id: 3,
