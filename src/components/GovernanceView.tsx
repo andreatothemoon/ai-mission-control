@@ -169,11 +169,6 @@ export default function GovernanceView() {
                   </div>
                 ))}
               </div>
-              <div className="flex items-center justify-center gap-20">
-                {[0, 1, 2].map((i) => (
-                  <div key={i} className="h-4 w-px bg-accent-yellow/20" />
-                ))}
-              </div>
             </motion.div>
 
             <div className="w-full h-px bg-divider" />
