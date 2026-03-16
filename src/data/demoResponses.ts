@@ -25,11 +25,12 @@ export const demoScenarios: DemoScenario[] = [
   {
     id: 2,
     prompt: "Review the copy for the new design of the Annual Benefit Statement document.",
-    involvedAgents: ["MASTER_AGENT", "COMPLIANCE_AGENT", "PRODUCT_AGENT"],
+    involvedAgents: ["MASTER_AGENT", "COMPLIANCE_AGENT", "CONTENT_WRITING_AGENT"],
     activitySteps: [
       "Routing to COMPLIANCE AGENT",
-      "Cross-referencing internal standards",
-      "Consulting PRODUCT AGENT",
+      "Cross-referencing Regulations",
+      "Consulting CONTENT WRITING AGENT",
+      "Reviewing against Guidelines",
       "Generating review report",
     ],
     response: `The copy for the new design has been reviewed, and it aligns with internal standards and guidelines. No issues were identified, and the content is suitable for use in the updated design.`,
