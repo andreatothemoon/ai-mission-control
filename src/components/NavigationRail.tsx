@@ -35,7 +35,7 @@ export default function NavigationRail({ activeView, onViewChange }: NavigationR
       <div className="mb-4 px-3">
         <h1 className="text-xs font-semibold tracking-[0.1em] uppercase text-foreground-secondary">AI Command Center</h1>
       </div>
-      <NavItem icon={<LayoutDashboard size={18} />} label="System Overview" active={activeView === "overview"} onClick={() => onViewChange("overview")} />
+      <NavItem icon={<Target size={18} />} label="Mission" active={activeView === "overview"} onClick={() => onViewChange("overview")} />
       <NavItem icon={<Share2 size={18} />} label="Agent Network" active={activeView === "network"} onClick={() => onViewChange("network")} />
       <NavItem icon={<Rocket size={18} />} label="Engineering" active={activeView === "engineering"} onClick={() => onViewChange("engineering")} />
       <NavItem icon={<GitPullRequest size={18} />} label="Governance" active={activeView === "governance"} onClick={() => onViewChange("governance")} />
